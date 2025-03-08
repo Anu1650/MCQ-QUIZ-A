@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .quiz-container {
+            width: 60%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .option {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background: #0056b3;
+        }
+        .correct {
+            background: green !important;
+        }
+        .wrong {
+            background: red !important;
+        }
+        .selected {
+            background: orange !important;
+        }
+        .btn-container {
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prev {
+            background: #6c757d;
+            color: white;
+        }
+        .prev:hover {
+            background: #5a6268;
+        }
+        .next {
+            background: #28a745;
+            color: white;
+        }
+        .next:hover {
+            background: #218838;
+        }
+        .stats {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .result-container {
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container" id="quiz-container">
+        <h3 style="text-align: left;"><a href="\Homepage">Back</a></h3>
+        <h1>MCQ Quiz</h1>
+        <p class="stats">
+            Total: <span id="total-questions">0</span> | 
+            Attempted: <span id="attempted-questions">0</span> | 
+            Unattempted: <span id="unattempted-questions">0</span>
+        </p>
+        <h2 id="question">Loading...</h2>
+        <button class="option" onclick="selectAnswer(0)">Option A</button>
+        <button class="option" onclick="selectAnswer(1)">Option B</button>
+        <button class="option" onclick="selectAnswer(2)">Option C</button>
+        <button class="option" onclick="selectAnswer(3)">Option D</button>
+        <p id="result"></p>
+        
+        <div class="btn-container">
+            <button class="btn prev" onclick="prevQuestion()">Previous</button>
+            <button class="btn next" onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <div class="quiz-container result-container" id="result-container">
+        <h1>Quiz Completed!</h1>
+        <p>Total Questions: <span id="total"></span></p>
+        <p>Attempted Questions: <span id="attempted"></span></p>
+        <p>Correct Answers: <span id="correct"></span></p>
+        <p>Score Percentage: <span id="percentage"></span>%</p>
+        <h2 id="final-message"></h2>
+    </div>
+
+    <script>
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let attemptedQuestions = new Set();
+        let selectedAnswers = {};
+        let correctAnswers = 0;
+
+        function loadQuestions() {
+            fetch("http://localhost:8080/questions")
+                .then(response => response.json())
+                .then(data => {
+                    if (!data || data.length === 0) {
+                        showUnderConstruction();}
+                    questions = data;
+                    document.getElementById("total-questions").innerText = questions.length;
+                    updateStats();
+                    displayQuestion();
+                })
+                .catch(error => {
+                    document.getElementById("question").innerText = "Error loading questions";
+                });
+        }
+        function showUnderConstruction() {
+            document.getElementById("quiz-container").innerHTML = '<p class="error-message">🚧 Website is under construction. Please try again later.</p><p class="Back to home"><h3><a href="\Homepage">Back To Home</a></h3></p>';
+        }
+        function displayQuestion() {
+            if (currentQuestionIndex < 0) {
+                currentQuestionIndex = 0;
+            } else if (currentQuestionIndex >= questions.length) {
+                showResults();
+                return;
+            }
+
+            let q = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = q.question;
+            let options = document.querySelectorAll(".option");
+            options[0].innerText = q.option_a;
+            options[1].innerText = q.option_b;
+            options[2].innerText = q.option_c;
+            options[3].innerText = q.option_d;
+            options.forEach(btn => btn.className = "option"); // Reset styles
+
+            // Highlight previously selected answer
+            if (selectedAnswers[currentQuestionIndex] !== undefined) {
+                options[selectedAnswers[currentQuestionIndex]].classList.add("selected");
+            }
+
+            document.getElementById("result").innerText = "";
+        }
+
+        function selectAnswer(selectedIndex) {
+            let options = document.querySelectorAll(".option");
+            let correctIndex = ["A", "B", "C", "D"].indexOf(questions[currentQuestionIndex].correct_option);
+
+            options.forEach(btn => btn.className = "option"); // Reset styles
+            options[selectedIndex].classList.add("selected");
+
+            selectedAnswers[currentQuestionIndex] = selectedIndex;
+            attemptedQuestions.add(currentQuestionIndex);
+
+            if (selectedIndex === correctIndex) {
+                options[selectedIndex].classList.add("correct");
+                document.getElementById("result").innerText = "✅ Correct!";
+                correctAnswers++;
+            } else {
+                options[selectedIndex].classList.add("wrong");
+                document.getElementById("result").innerText = "❌ Wrong! Try again.";
+            }
+
+            updateStats();
+        }
+        
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            displayQuestion();
+        }
+
+        function updateStats() {
+            document.getElementById("attempted-questions").innerText = attemptedQuestions.size;
+            document.getElementById("unattempted-questions").innerText = questions.length - attemptedQuestions.size;
+        }
+
+        function showResults() {
+            document.getElementById("quiz-container").style.display = "none";
+            document.getElementById("result-container").style.display = "block";
+
+            let totalQuestions = questions.length;
+            let attempted = attemptedQuestions.size;
+            let percentage = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+
+            document.getElementById("total").innerText = totalQuestions;
+            document.getElementById("attempted").innerText = attempted;
+            document.getElementById("correct").innerText = correctAnswers;
+            document.getElementById("percentage").innerText = percentage;
+
+            if (percentage >= 50) {
+                document.getElementById("final-message").innerText = "🎉 Congratulations! You Passed!";
+                document.getElementById("final-message").style.color = "green";
+            } else {
+                document.getElementById("final-message").innerText = "❌ Try Again! You Failed.";
+                document.getElementById("final-message").style.color = "red";
+            }
+        }
+
+        loadQuestions();
+    </script>
+</body>
+</html>

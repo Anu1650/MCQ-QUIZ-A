@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .quiz-container {
+            width: 60%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 20px;
+        }
+        .option {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .option:hover { background: #0056b3; }
+        .selected { background: orange !important; }
+        .btn-container { margin-top: 15px; }
+        .btn { padding: 10px 15px; margin: 5px; font-size: 14px; border: none; border-radius: 5px; cursor: pointer; }
+        .prev { background: #6c757d; color: white; }
+        .next { background: #28a745; color: white; }
+        .submit-btn { background: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h3 style="text-align: left;"><a href="Homepage">Back</a></h3>
+
+        <!-- ✅ Quiz Selection -->
+        <div id="quiz-selection">
+            <h2>Select a Quiz</h2>
+            <select id="quizDropdown">
+                <option value="">Select a Quiz</option>
+                <option value="Management">Management</option>
+                <option value="Emerging Trends in Computer & IT">Emerging Trends in Computer & IT</option>
+                <option value="Environmental Studies">Environmental Studies</option>
+            </select>
+            <button onclick="startExam()">Start Exam</button>
+        </div>
+
+        <!-- ✅ Quiz UI -->
+        <div id="quiz-content" style="display: none;">
+            <div class="timer" id="timer">Time Left: 120:00</div>
+            <h1>Main Exam</h1>
+            <p>Total: <span id="total-questions">0</span> | Attempted: <span id="attempted-questions">0</span> | Unattempted: <span id="unattempted-questions">0</span></p>
+
+            <h2 id="question"></h2>
+            <button class="option" onclick="selectAnswer(0)"></button>
+            <button class="option" onclick="selectAnswer(1)"></button>
+            <button class="option" onclick="selectAnswer(2)"></button>
+            <button class="option" onclick="selectAnswer(3)"></button>
+
+            <div class="btn-container">
+                <button class="btn prev" onclick="prevQuestion()">Previous</button>
+                <button class="btn next" onclick="nextQuestion()">Next</button>
+                <button class="btn submit-btn" onclick="submitQuiz()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    let timeLeft = 120 * 60;
+    let timerInterval;
+    let examCompleted = false;
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let selectedAnswers = {};
+    let attemptedQuestions = new Set();
+    let correctAnswers = 0;
+    
+    function startExam() {
+        let selectedQuiz = document.getElementById("quizDropdown").value;
+        if (!selectedQuiz) {
+            alert("Please select a quiz!");
+            return;
+        }
+    
+        fetch(`/fetch-questions?quizName=${encodeURIComponent(selectedQuiz)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) throw new Error(data.error);
+                questions = data;
+                document.getElementById("total-questions").innerText = questions.length;
+                document.getElementById("quiz-selection").style.display = "none";
+                document.getElementById("quiz-content").style.display = "block";
+                startTimer();
+                displayQuestion();
+            })
+            .catch(error => {
+                console.error("Error fetching questions:", error);
+                alert("Failed to load questions.");
+            });
+    }
+    
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById("timer").innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+    
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                if (!examCompleted) {
+                    alert("Time is up! Submitting quiz...");
+                    submitQuiz();
+                }
+            }
+        }, 1000);
+    }
+    
+    function displayQuestion() {
+        if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+        if (currentQuestionIndex >= questions.length) return;
+    
+        let q = questions[currentQuestionIndex];
+        document.getElementById("question").innerText = q.question;
+        let options = document.querySelectorAll(".option");
+    
+        options[0].innerText = q.option_a;
+        options[1].innerText = q.option_b;
+        options[2].innerText = q.option_c;
+        options[3].innerText = q.option_d;
+    
+        options.forEach(btn => btn.classList.remove("selected"));
+    
+        if (selectedAnswers[currentQuestionIndex] !== undefined) {
+            let selectedIndex = selectedAnswers[currentQuestionIndex];
+            options[selectedIndex].classList.add("selected");
+        }
+    
+        updateStats();
+    }
+    
+    function selectAnswer(selectedIndex) {
+        selectedAnswers[currentQuestionIndex] = selectedIndex;
+        attemptedQuestions.add(currentQuestionIndex);
+    
+        document.querySelectorAll(".option").forEach((btn, index) => {
+            btn.classList.remove("selected");
+            if (index === selectedIndex) btn.classList.add("selected");
+        });
+    
+        updateStats();
+    }
+    
+    function updateStats() {
+        let attempted = attemptedQuestions.size;
+        let total = questions.length;
+        document.getElementById("attempted-questions").innerText = attempted;
+        document.getElementById("unattempted-questions").innerText = total - attempted;
+    }
+    
+    function prevQuestion() { 
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--; 
+            displayQuestion(); 
+        }
+    }
+    
+    function nextQuestion() { 
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++; 
+            displayQuestion(); 
+        }
+    }
+    function submitQuiz() {
+    let totalQuestions = questions.length;
+    let attempted = attemptedQuestions.size;
+
+    if (attempted < totalQuestions) {
+        alert(`You have attempted only ${attempted} out of ${totalQuestions} questions. Please attempt all before submitting.`);
+        return;
+    }
+
+    clearInterval(timerInterval);
+    examCompleted = true;
+
+    let correct = 0;
+    questions.forEach((q, index) => {
+        if (selectedAnswers[index] !== undefined) {
+            let selectedOption = selectedAnswers[index];
+            let correctOption = ["A", "B", "C", "D"].indexOf(q.correct_option.toUpperCase());
+            if (selectedOption === correctOption) {
+                correct++;
+            }
+        }
+    });
+
+    correctAnswers = correct;
+    showResults();
+}
+
+    
+    function showResults() {
+        document.body.innerHTML = `
+            <div class="quiz-container">
+                <h1>Quiz Results</h1>
+                <p>Total Questions: <strong>${questions.length}</strong></p>
+                <p>Attempted Questions: <strong>${attemptedQuestions.size}</strong></p>
+                <p>Unattempted Questions: <strong>${questions.length - attemptedQuestions.size}</strong></p>
+                <p>Correct Answers: <strong>${correctAnswers}</strong></p>
+                <p>Incorrect Answers: <strong>${attemptedQuestions.size - correctAnswers}</strong></p>
+                <p>Percentage: <strong>${((correctAnswers / questions.length) * 100).toFixed(2)}%</strong></p>
+                <h2 id="final-message"></h2>
+                <button onclick="location.reload()">Back to Home</button>
+            </div>
+        `;
+    
+        let finalMessage = document.getElementById("final-message");
+        let percentage = (correctAnswers / questions.length) * 100;
+        if (percentage >= 50) {
+            finalMessage.innerText = "🎉 Congratulations! You Passed!";
+            finalMessage.style.color = "green";
+        } else {
+            finalMessage.innerText = "❌ Try Again! You Failed.";
+            finalMessage.style.color = "red";
+        }
+    }
+</script>
+        
+    
+</body>
+</html>

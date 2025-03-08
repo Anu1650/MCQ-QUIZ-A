@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MCQ Website</title>
+    
+    <style>
+        /* Page Styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            text-align: center;
+            color: #fff;
+        }
+        .container {
+            flex: 1; /* Pushes footer down */
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            display: flex;
+            justify-content: right;
+            gap: 20px;
+            border-radius: 10px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffcc00;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #e6b800;
+        }
+        
+        /* Messages Section */
+        .message-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .message-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+    
+    <script>
+    // Handle form submission and store messages
+    function submitForm(event) {
+        event.preventDefault();
+        
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+        
+        if (name === "" || email === "" || message === "") {
+            alert("All fields must be filled out");
+            return;
+        }
+        
+        let formData = {
+            name: name,
+            email: email,
+            message: message
+        };
+
+        // Store message in Local Storage
+        saveMessageLocally(formData);
+        displayMessages(); // Update UI
+
+        // Clear form fields
+        document.getElementById("contactForm").reset();
+
+        alert("Message sent successfully!");
+    }
+
+    // Save messages in Local Storage
+    function saveMessageLocally(messageData) {
+        let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+        messages.push(messageData);
+        localStorage.setItem("contactMessages", JSON.stringify(messages));
+    }
+
+    // Display stored messages on page
+    function displayMessages() {
+        let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+        let messageContainer = document.getElementById("messageList");
+        messageContainer.innerHTML = ""; // Clear previous messages
+        
+        messages.forEach(msg => {
+            let messageDiv = document.createElement("div");
+            messageDiv.classList.add("message-box");
+            messageDiv.innerHTML = `<strong>${msg.name} (${msg.email})</strong><p>${msg.message}</p>`;
+            messageContainer.appendChild(messageDiv);
+        });
+    }
+
+    // Load messages when the page loads
+    window.onload = displayMessages;
+    </script>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="\Homepage">Home</a>
+        <a href="\contact">Contact</a>
+        <a href="\Mainexam">Main Exam</a>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>If you have any questions, feel free to reach out to us!</p>
+        
+        <form id="contactForm" class="contact-form" onsubmit="submitForm(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Display Previous Messages -->
+    <div class="message-container">
+        <h2>Previous Messages</h2>
+        <div id="messageList"></div>
+    </div>
+
+    <!-- Footer (Always at Bottom) -->
+    <div class="footer">
+        <p>Developed by [Aniket Igade] | © 2025 MCQ Website</p>
+    </div>
+
+</body>
+</html>
