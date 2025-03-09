@@ -126,7 +126,7 @@
             fetch("http://localhost:8080/questions3")
                 .then(response => response.json())
                 .then(data => {
-                    if (!data || data.length === 0) {
+                    if (!data || data.length == 0) {
                         showUnderConstruction();
                         return;
                     }
@@ -151,7 +151,6 @@
                 showResults();
                 return;
             }
-
             let q = questions[currentQuestionIndex];
             document.getElementById("question").innerText = q.question;
             let options = document.querySelectorAll(".option");
@@ -221,12 +220,19 @@
             document.getElementById("correct").innerText = correctAnswers;
             document.getElementById("percentage").innerText = percentage;
 
-            document.getElementById("final-message").innerText = percentage >= 50 
-                ? "🎉 Congratulations! You Passed!" 
-                : "❌ Try Again! You Failed.";
+            if (percentage >= 50) {
+                document.getElementById("final-message").innerHTML = `
+                    🎉 Congratulations! You Passed!<br>
+                    <a href="/Homepage">Go to Homepage</a>
+                `;
+            } else {
+                document.getElementById("final-message").innerHTML = `
+                    ❌ Try Again! You Failed.<br>
+                    <a href="javascript:location.reload()">Try Again</a>
+                `;
+            }
         }
-
-        loadQuestions();
+        loadQuestions()
     </script>
 </body>
 </html>

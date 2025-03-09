@@ -1,13 +1,9 @@
 const express = require("express");
-const { Pool } = require("pg");
+const fs = require("fs");
 const cors = require("cors");
-const dotenv = require("dotenv");
+const app = express();
 const ejsMate = require("ejs-mate");
 const path = require("path");
-
-dotenv.config(); // Load .env file
-
-const app = express();
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -15,42 +11,103 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-// ✅ Connect to PostgreSQL (Railway)
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false } // Required for Railway
-});
-
-pool.connect()
-    .then(() => console.log("✅ Connected to PostgreSQL Database"))
-    .catch((err) => console.error("❌ Database connection failed:", err));
-
 // ✅ Homepage Route
 app.get("/Homepage", (req, res) => {
+    console.log("✅ Homepage Loaded");
     res.render("Homepage.ejs");
 });
 
-// ✅ Fetch Questions for Different Quizzes
-app.get("/fetch-questions", async (req, res) => {
+// ✅ index Route
+app.get("/index", (req, res) => {
+    console.log("✅ index page Loaded");
+    res.render("index.ejs");
+});
+
+// ✅ index2 Route
+app.get("/index2", (req, res) => {
+    console.log("✅ index2 page Loaded");
+    res.render("index2.ejs");
+});
+
+// ✅ index3 Route
+app.get("/index3", (req, res) => {
+    console.log("✅ index3 page Loaded");
+    res.render("index3.ejs");
+});
+
+// ✅ Fetch Questions for Index
+app.get("/questions", (req, res) => {
+    fs.readFile("data/questions.json", "utf8", (err, data) => {
+        if (err) {
+            res.status(500).send("Error fetching questions");
+        } else {
+            res.json(JSON.parse(data));
+        }
+    });
+});
+
+// ✅ Fetch Questions for Index2
+app.get("/questions2", (req, res) => {
+    fs.readFile("data/questions2.json", "utf8", (err, data) => {
+        if (err) {
+            res.status(500).send("Error fetching questions");
+        } else {
+            res.json(JSON.parse(data));
+        }
+    });
+});
+
+// ✅ Fetch Questions for Index3
+app.get("/questions3", (req, res) => {
+    fs.readFile("data/questions3.json", "utf8", (err, data) => {
+        if (err) {
+            res.status(500).send("Error fetching questions");
+        } else {
+            res.json(JSON.parse(data));
+        }
+    });
+});
+
+// ✅ Contact Page Route
+app.get("/contact", (req, res) => {
+    console.log("✅ Contact Page Loaded");
+    res.render("contact.ejs");
+});
+
+// ✅ Mainexam Page Route
+app.get("/Mainexam", (req, res) => {
+    console.log("✅ Mainexam Page Loaded");
+    res.render("Mainexam.ejs");
+});
+
+// ✅ Fetch 70 Random Questions for Main Exam
+app.get("/fetch-questions", (req, res) => {
     const quizName = req.query.quizName;
-    let tableName = "";
+    let fileName = "";
 
-    if (quizName === "Management") tableName = "questions";
-    else if (quizName === "Emerging Trends in Computer & IT") tableName = "questions2";
-    else if (quizName === "Environmental Studies") tableName = "questions3";
-    else return res.status(400).json({ error: "Invalid quiz selected" });
-
-    try {
-        const { rows } = await pool.query(`SELECT * FROM ${tableName} ORDER BY RANDOM() LIMIT 70`);
-        res.json(rows);
-    } catch (err) {
-        console.error("❌ Database Error:", err);
-        res.status(500).json({ error: "Database query failed" });
+    if (quizName === "Management") {
+        fileName = "questions.json";
+    } else if (quizName === "Emerging Trends in Computer & IT") {
+        fileName = "questions2.json";
+    } else if (quizName === "Environmental Studies") {
+        fileName = "questions3.json";
+    } else {
+        return res.status(400).json({ error: "Invalid quiz selected" });
     }
+
+    fs.readFile(`data/${fileName}`, "utf8", (err, data) => {
+        if (err) {
+            console.error("❌ Error reading file:", err);
+            res.status(500).json({ error: "File read error" });
+        } else {
+            const questions = JSON.parse(data);
+            const randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 70);
+            res.json(randomQuestions);
+        }
+    });
 });
 
 // ✅ Start the Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`✅ Server running on port ${PORT}`);
+app.listen(8080, () => {
+    console.log("✅ Server running on port 8080");
 });
