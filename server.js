@@ -11,9 +11,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-
-
-
 // ✅ Homepage Route
 app.get("/", (req, res) => {
     console.log("✅ Homepage Loaded");
@@ -22,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/Homepage", (req, res) => {
     console.log("✅ Homepage Loaded");
-    res.render("Homepage.ejs");
+    res.redirect("/");
 });
 
 // ✅ index Route
@@ -114,6 +111,12 @@ app.get("/fetch-questions", (req, res) => {
         }
     });
 });
+
+app.get("*", (req, res) => {
+    console.log("✅ Homepage Loaded");
+    res.render("Homepage.ejs");
+});
+
 
 // ✅ Start the Server
 app.listen(8080, () => {
