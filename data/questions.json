@@ -1,42 +1,52 @@
 [
     {
         "question": "Which AI is commonly used for speech recognition?",
-        "A": "Narrow AI",
-        "B": "General AI",
-        "C": "Super AI",
-        "D": "Strong AI",
+        "options": {
+            "A": "Narrow AI",
+            "B": "General AI",
+            "C": "Super AI",
+            "D": "Strong AI"
+        },
         "correct_option": "A"
     },
     {
         "question": "Which branch of AI learns from data without being explicitly programmed?",
-        "A": "Machine Learning",
-        "B": "Deep Learning",
-        "C": "Artificial Intelligence",
-        "D": "Big Data",
+        "options": {
+            "A": "Machine Learning",
+            "B": "Deep Learning",
+            "C": "Artificial Intelligence",
+            "D": "Big Data"
+        },
         "correct_option": "A"
     },
     {
         "question": "Which technology is used to store decentralized digital transactions?",
-        "A": "Blockchain",
-        "B": "Cloud Computing",
-        "C": "Big Data",
-        "D": "IoT",
+        "options": {
+            "A": "Blockchain",
+            "B": "Cloud Computing",
+            "C": "Big Data",
+            "D": "IoT"
+        },
         "correct_option": "A"
     },
     {
         "question": "Which is an example of IoT (Internet of Things)?",
-        "A": "Smart Thermostat",
-        "B": "Cloud Storage",
-        "C": "Machine Learning",
-        "D": "Social Media",
+        "options": {
+            "A": "Smart Thermostat",
+            "B": "Cloud Storage",
+            "C": "Machine Learning",
+            "D": "Social Media"
+        },
         "correct_option": "A"
     },
     {
         "question": "What is the purpose of cybersecurity?",
-        "A": "Protecting systems and networks",
-        "B": "Increasing internet speed",
-        "C": "Hacking into secure servers",
-        "D": "Storing private data",
+        "options": {
+            "A": "Protecting systems and networks",
+            "B": "Increasing internet speed",
+            "C": "Hacking into secure servers",
+            "D": "Storing private data"
+        },
         "correct_option": "A"
     }
 ]

@@ -42,8 +42,9 @@ app.get("/index3", (req, res) => {
 
 // ✅ Fetch Questions for Index
 app.get("/questions", (req, res) => {
-    fs.readFile("data/questions.json", "utf8", (err, data) => {
+    fs.readFile(path.join(__dirname, "data/questions.json"), "utf8", (err, data) => {
         if (err) {
+            console.error("❌ Error reading questions.json:", err);
             res.status(500).send("Error fetching questions");
         } else {
             res.json(JSON.parse(data));
@@ -53,8 +54,9 @@ app.get("/questions", (req, res) => {
 
 // ✅ Fetch Questions for Index2
 app.get("/questions2", (req, res) => {
-    fs.readFile("data/questions2.json", "utf8", (err, data) => {
+    fs.readFile(path.join(__dirname, "data/questions2.json"), "utf8", (err, data) => {
         if (err) {
+            console.error("❌ Error reading questions2.json:", err);
             res.status(500).send("Error fetching questions");
         } else {
             res.json(JSON.parse(data));
@@ -64,14 +66,16 @@ app.get("/questions2", (req, res) => {
 
 // ✅ Fetch Questions for Index3
 app.get("/questions3", (req, res) => {
-    fs.readFile("data/questions3.json", "utf8", (err, data) => {
+    fs.readFile(path.join(__dirname, "data/questions3.json"), "utf8", (err, data) => {
         if (err) {
+            console.error("❌ Error reading questions3.json:", err);
             res.status(500).send("Error fetching questions");
         } else {
             res.json(JSON.parse(data));
         }
     });
 });
+
 
 // ✅ Contact Page Route
 app.get("/contact", (req, res) => {

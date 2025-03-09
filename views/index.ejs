@@ -121,33 +121,39 @@
         let attemptedQuestions = new Set();
         let selectedAnswers = {};
         let correctAnswers = 0;
-
+    
         function loadQuestions() {
-            fetch("http://localhost:8080/questions")
+            fetch("/questions")  // Correct endpoint for fetching JSON data
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Failed to fetch data");
+                        throw new Error("Failed to fetch questions.");
                     }
                     return response.json();
                 })
                 .then(data => {
-                    if (!data || data.length === 0 || !data[0].question) {
+                    if (!data || data.length === 0) {
                         showUnderConstruction();
                         return;
                     }
                     questions = data;
+                    document.getElementById("total-questions").innerText = questions.length;
+                    updateStats();
                     displayQuestion();
                 })
-                .catch(() => {
-                    showUnderConstruction();
+                .catch(error => {
+                    console.error("❌ Error loading questions:", error);
+                    document.getElementById("question").innerText = "Error loading questions. Please try again.";
                 });
         }
-
-
+    
         function showUnderConstruction() {
-            document.getElementById("quiz-container").innerHTML = '<p class="error-message">🚧 Website is under construction. Please try again later.</p><p class="Back to home"><h3><a href="/Homepage">Back To Home</a></h3></p>';
+            document.getElementById("quiz-container").innerHTML = `
+                <p class="error-message">🚧 Website is under construction. Please try again later.</p>
+                <p class="Back to home">
+                    <h3><a href="/Homepage">Back To Home</a></h3>
+                </p>`;
         }
-
+    
         function displayQuestion() {
             if (currentQuestionIndex < 0) {
                 currentQuestionIndex = 0;
@@ -155,34 +161,39 @@
                 showResults();
                 return;
             }
-
+    
             let q = questions[currentQuestionIndex];
             document.getElementById("question").innerText = q.question;
+    
             let options = document.querySelectorAll(".option");
             options[0].innerText = q.options.A;
             options[1].innerText = q.options.B;
             options[2].innerText = q.options.C;
             options[3].innerText = q.options.D;
-            options.forEach(btn => btn.className = "option"); // Reset styles
-
-            // Highlight previously selected answer
+    
+            options.forEach(btn => btn.className = "option");
+    
+            // Highlight previously selected answer (with null check)
             if (selectedAnswers[currentQuestionIndex] !== undefined) {
-                options[selectedAnswers[currentQuestionIndex]].classList.add("selected");
+                let previousAnswerIndex = ["A", "B", "C", "D"].indexOf(selectedAnswers[currentQuestionIndex]);
+                if (previousAnswerIndex !== -1) {
+                    options[previousAnswerIndex].classList.add("selected");
+                }
             }
-
+    
             document.getElementById("result").innerText = "";
         }
-
+    
         function selectAnswer(selectedIndex) {
             let options = document.querySelectorAll(".option");
             let correctIndex = ["A", "B", "C", "D"].indexOf(questions[currentQuestionIndex].correct_option);
-
-            options.forEach(btn => btn.className = "option"); // Reset styles
+    
+            options.forEach(btn => btn.className = "option");
             options[selectedIndex].classList.add("selected");
-
-            selectedAnswers[currentQuestionIndex] = selectedIndex;
+    
+            selectedAnswers[currentQuestionIndex] = ["A", "B", "C", "D"][selectedIndex];
             attemptedQuestions.add(currentQuestionIndex);
-
+    
             if (selectedIndex === correctIndex) {
                 options[selectedIndex].classList.add("correct");
                 document.getElementById("result").innerText = "✅ Correct!";
@@ -191,54 +202,52 @@
                 options[selectedIndex].classList.add("wrong");
                 document.getElementById("result").innerText = "❌ Wrong! Try again.";
             }
-
+    
             updateStats();
         }
-        
+    
         function prevQuestion() {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
                 displayQuestion();
             }
         }
-
+    
         function nextQuestion() {
             currentQuestionIndex++;
             displayQuestion();
         }
-
+    
         function updateStats() {
             document.getElementById("attempted-questions").innerText = attemptedQuestions.size;
             document.getElementById("unattempted-questions").innerText = questions.length - attemptedQuestions.size;
         }
+    
         function showResults() {
             document.getElementById("quiz-container").style.display = "none";
             document.getElementById("result-container").style.display = "block";
-
+    
             let totalQuestions = questions.length;
             let attempted = attemptedQuestions.size;
             let percentage = ((correctAnswers / totalQuestions) * 100).toFixed(2);
-
+    
             document.getElementById("total").innerText = totalQuestions;
             document.getElementById("attempted").innerText = attempted;
             document.getElementById("correct").innerText = correctAnswers;
             document.getElementById("percentage").innerText = percentage;
-
+    
             if (percentage >= 50) {
-                document.getElementById("final-message").innerHTML = `
-                    🎉 Congratulations! You Passed!<br>
-                    <a href="/Homepage">Go to Homepage</a>
-                `;
+                document.getElementById("final-message").innerHTML = 
+                    `🎉 Congratulations! You Passed!<br>
+                    <a href="/Homepage">Go to Homepage</a>`;
             } else {
-                document.getElementById("final-message").innerHTML = `
-                    ❌ Try Again! You Failed.<br>
-                    <a href="javascript:location.reload()">Try Again</a>
-                `;
+                document.getElementById("final-message").innerHTML = 
+                    `❌ Try Again! You Failed.<br>
+                    <a href="javascript:location.reload()">Try Again</a>`;
             }
         }
-
-
+    
         loadQuestions();
     </script>
 </body>
-</html>
+</html>    
