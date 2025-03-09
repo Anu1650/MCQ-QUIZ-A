@@ -154,10 +154,10 @@
             let q = questions[currentQuestionIndex];
             document.getElementById("question").innerText = q.question;
             let options = document.querySelectorAll(".option");
-            options[0].innerText = q.option_a;
-            options[1].innerText = q.option_b;
-            options[2].innerText = q.option_c;
-            options[3].innerText = q.option_d;
+            options[0].innerText = q.options.A;
+            options[1].innerText = q.options.B;
+            options[2].innerText = q.options.C;
+            options[3].innerText = q.options.D;
             options.forEach(btn => btn.className = "option"); // Reset styles
 
             // Highlight previously selected answer

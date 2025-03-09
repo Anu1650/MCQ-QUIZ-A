@@ -1,42 +1,42 @@
 [
     {
         "question": "Which AI is commonly used for speech recognition?",
-        "option_a": "Narrow AI",
-        "option_b": "General AI",
-        "option_c": "Super AI",
-        "option_d": "Strong AI",
+        "A": "Narrow AI",
+        "B": "General AI",
+        "C": "Super AI",
+        "D": "Strong AI",
         "correct_option": "A"
     },
     {
         "question": "Which branch of AI learns from data without being explicitly programmed?",
-        "option_a": "Machine Learning",
-        "option_b": "Deep Learning",
-        "option_c": "Artificial Intelligence",
-        "option_d": "Big Data",
+        "A": "Machine Learning",
+        "B": "Deep Learning",
+        "C": "Artificial Intelligence",
+        "D": "Big Data",
         "correct_option": "A"
     },
     {
         "question": "Which technology is used to store decentralized digital transactions?",
-        "option_a": "Blockchain",
-        "option_b": "Cloud Computing",
-        "option_c": "Big Data",
-        "option_d": "IoT",
+        "A": "Blockchain",
+        "B": "Cloud Computing",
+        "C": "Big Data",
+        "D": "IoT",
         "correct_option": "A"
     },
     {
         "question": "Which is an example of IoT (Internet of Things)?",
-        "option_a": "Smart Thermostat",
-        "option_b": "Cloud Storage",
-        "option_c": "Machine Learning",
-        "option_d": "Social Media",
+        "A": "Smart Thermostat",
+        "B": "Cloud Storage",
+        "C": "Machine Learning",
+        "D": "Social Media",
         "correct_option": "A"
     },
     {
         "question": "What is the purpose of cybersecurity?",
-        "option_a": "Protecting systems and networks",
-        "option_b": "Increasing internet speed",
-        "option_c": "Hacking into secure servers",
-        "option_d": "Storing private data",
+        "A": "Protecting systems and networks",
+        "B": "Increasing internet speed",
+        "C": "Hacking into secure servers",
+        "D": "Storing private data",
         "correct_option": "A"
     }
 ]
