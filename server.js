@@ -114,7 +114,7 @@ app.get("/fetch-questions", (req, res) => {
 
 app.get("*", (req, res) => {
     console.log("✅ Homepage Loaded");
-    res.render("Homepage.ejs");
+    res.redirect("/");
 });
 
 
