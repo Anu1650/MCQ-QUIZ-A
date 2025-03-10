@@ -88,7 +88,7 @@
         </div>
     </div>
     <script>
-    let timeLeft = 120 * 60;
+    let timeLeft = 1 * 60;
     let timerInterval;
     let examCompleted = false;
     let questions = [];
@@ -96,6 +96,7 @@
     let selectedAnswers = {};
     let attemptedQuestions = new Set();
     let correctAnswers = 0;
+    let m=0;
     
     function startExam() {
         let selectedQuiz = document.getElementById("quizDropdown").value;
@@ -107,7 +108,11 @@
         fetch(`/fetch-questions?quizName=${encodeURIComponent(selectedQuiz)}`)
             .then(response => response.json())
             .then(data => {
-                if (data.error) throw new Error(data.error);
+                if (!data || data.length == 0) {
+                        showUnderConstruction();
+                        return;
+                    }
+                else if (data.error) throw new Error(data.error);
                 questions = data;
                 document.getElementById("total-questions").innerText = questions.length;
                 document.getElementById("quiz-selection").style.display = "none";
@@ -116,11 +121,14 @@
                 displayQuestion();
             })
             .catch(error => {
+                showUnderConstruction();
                 console.error("Error fetching questions:", error);
                 alert("Failed to load questions.");
             });
     }
-    
+     function showUnderConstruction() {
+            alert("THE SELECTED COURSE IS NOT ADDED IN DATABSE SORRY FOR TRUBEL TRY AFETR SOME TIME OR SEND MESSAGE On CONTACT US");
+        }
     function startTimer() {
         timerInterval = setInterval(() => {
             let minutes = Math.floor(timeLeft / 60);
@@ -132,7 +140,7 @@
                 clearInterval(timerInterval);
                 if (!examCompleted) {
                     alert("Time is up! Submitting quiz...");
-                    submitQuiz();
+                    showResults();
                 }
             }
         }, 1000);

@@ -100,60 +100,73 @@
     </style>
     
     <script>
-    // Handle form submission and store messages
-    function submitForm(event) {
-        event.preventDefault();
-        
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message").value;
-        
-        if (name === "" || email === "" || message === "") {
-            alert("All fields must be filled out");
+      async function submitForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !message) {
+        alert("All fields must be filled out");
+        return;
+    }
+
+    const formData = { name, email, message };
+
+    try {
+        const response = await fetch('/submit-contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            alert("Message sent successfully!");
+            await displayMessages();  // Refresh message list immediately
+            document.getElementById("contactForm").reset();
+        } else {
+            alert("Failed to send message.");
+        }
+    } catch (error) {
+        alert("An error occurred. Please try again.");
+    }
+}
+
+async function displayMessages() {
+    try {
+        const response = await fetch('/get-messages');
+        const messages = await response.json();
+
+        const messageContainer = document.getElementById("messageList");
+        messageContainer.innerHTML = ""; // Clear previous messages
+
+        if (messages.length === 0) {
+            messageContainer.innerHTML = `<p>No messages yet.</p>`;
             return;
         }
-        
-        let formData = {
-            name: name,
-            email: email,
-            message: message
-        };
 
-        // Store message in Local Storage
-        saveMessageLocally(formData);
-        displayMessages(); // Update UI
-
-        // Clear form fields
-        document.getElementById("contactForm").reset();
-
-        alert("Message sent successfully!");
-    }
-
-    // Save messages in Local Storage
-    function saveMessageLocally(messageData) {
-        let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
-        messages.push(messageData);
-        localStorage.setItem("contactMessages", JSON.stringify(messages));
-    }
-
-    // Display stored messages on page
-    function displayMessages() {
-        let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
-        let messageContainer = document.getElementById("messageList");
-        messageContainer.innerHTML = ""; // Clear previous messages
-        
         messages.forEach(msg => {
-            let messageDiv = document.createElement("div");
+            const messageDiv = document.createElement("div");
             messageDiv.classList.add("message-box");
-            messageDiv.innerHTML = `<strong>${msg.name} (${msg.email})</strong><p>${msg.message}</p>`;
+            messageDiv.innerHTML = `
+                <strong>ID: ${msg.id}</strong><br>
+                <strong>Name:</strong> ${msg.name} <br>
+                <strong>Email:</strong> ${msg.email} <br>
+                <strong>Message:</strong> ${msg.message}
+            `;
             messageContainer.appendChild(messageDiv);
         });
+    } catch (error) {
+        console.error("Failed to load messages:", error);
     }
+}
 
-    // Load messages when the page loads
-    window.onload = displayMessages;
-    </script>
+// Load messages when the page loads
+window.onload = displayMessages;
 
+</script>
+        
 </head>
 <body>
 

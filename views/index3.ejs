@@ -136,6 +136,7 @@
                     displayQuestion();
                 })
                 .catch(error => {
+                    showUnderConstruction();
                     document.getElementById("question").innerText = "Error loading questions";
                 });
         }

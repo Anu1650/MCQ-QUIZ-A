@@ -9,6 +9,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json()); // For parsing JSON data
 app.use(cors());
 
 // ✅ Homepage Route
@@ -22,66 +23,82 @@ app.get("/Homepage", (req, res) => {
     res.redirect("/");
 });
 
-// ✅ index Route
-app.get("/index", (req, res) => {
-    console.log("✅ index page Loaded");
-    res.render("index.ejs");
-});
-
-// ✅ index2 Route
-app.get("/index2", (req, res) => {
-    console.log("✅ index2 page Loaded");
-    res.render("index2.ejs");
-});
-
-// ✅ index3 Route
-app.get("/index3", (req, res) => {
-    console.log("✅ index3 page Loaded");
-    res.render("index3.ejs");
-});
-
-// ✅ Fetch Questions for Index
-app.get("/questions", (req, res) => {
-    fs.readFile(path.join(__dirname, "data/questions.json"), "utf8", (err, data) => {
-        if (err) {
-            console.error("❌ Error reading questions.json:", err);
-            res.status(500).send("Error fetching questions");
-        } else {
-            res.json(JSON.parse(data));
-        }
+// ✅ Index Routes
+["index", "index2", "index3"].forEach((route) => {
+    app.get(`/${route}`, (req, res) => {
+        console.log(`✅ ${route} page Loaded`);
+        res.render(`${route}.ejs`);
     });
 });
 
-// ✅ Fetch Questions for Index2
-app.get("/questions2", (req, res) => {
-    fs.readFile(path.join(__dirname, "data/questions2.json"), "utf8", (err, data) => {
-        if (err) {
-            console.error("❌ Error reading questions2.json:", err);
-            res.status(500).send("Error fetching questions");
-        } else {
-            res.json(JSON.parse(data));
-        }
+// ✅ Fetch Questions (with IDs) for Each Index
+["questions", "questions2", "questions3"].forEach((fileName) => {
+    app.get(`/${fileName}`, (req, res) => {
+        const filePath = path.join(__dirname, `data/${fileName}.json`);
+
+        fs.readFile(filePath, "utf8", (err, data) => {
+            if (err) {
+                console.error(`❌ Error reading ${fileName}.json:`, err);
+                return res.status(500).send("Error fetching questions");
+            }
+
+            const questions = JSON.parse(data).map((question, index) => ({
+                ...question,
+                id: index + 1 // Add unique ID for each question
+            }));
+
+            res.json(questions);
+        });
     });
 });
-
-// ✅ Fetch Questions for Index3
-app.get("/questions3", (req, res) => {
-    fs.readFile(path.join(__dirname, "data/questions3.json"), "utf8", (err, data) => {
-        if (err) {
-            console.error("❌ Error reading questions3.json:", err);
-            res.status(500).send("Error fetching questions");
-        } else {
-            res.json(JSON.parse(data));
-        }
-    });
-});
-
 
 // ✅ Contact Page Route
 app.get("/contact", (req, res) => {
     console.log("✅ Contact Page Loaded");
     res.render("contact.ejs");
 });
+app.use(express.json()); // Important: Ensure JSON body parsing is enabled
+
+// ✅ Save Contact Message with ID
+app.post("/submit-contact", (req, res) => {
+    const { name, email, message } = req.body;
+
+    fs.readFile("data/contactMessages.json", "utf8", (err, data) => {
+        let messages = [];
+        if (!err && data) {
+            messages = JSON.parse(data);
+        }
+
+        const newMessage = {
+            id: messages.length + 1,  // ID starts from 1 to N
+            name,
+            email,
+            message
+        };
+
+        messages.push(newMessage);
+
+        fs.writeFile("data/contactMessages.json", JSON.stringify(messages, null, 2), (err) => {
+            if (err) {
+                console.error("❌ Error saving message:", err);
+                return res.status(500).json({ error: "Failed to save message" });
+            }
+            res.status(200).json({ id: newMessage.id }); // Send back the new ID
+        });
+    });
+});
+
+// ✅ Get Messages for Display
+app.get("/get-messages", (req, res) => {
+    fs.readFile("data/contactMessages.json", "utf8", (err, data) => {
+        if (err) {
+            console.error("❌ Error reading messages:", err);
+            return res.status(500).json([]);
+        }
+        res.json(JSON.parse(data));
+    });
+});
+
 
 // ✅ Mainexam Page Route
 app.get("/Mainexam", (req, res) => {
@@ -89,37 +106,42 @@ app.get("/Mainexam", (req, res) => {
     res.render("Mainexam.ejs");
 });
 
-// ✅ Fetch 70 Random Questions for Main Exam
+// ✅ Fetch 70 Random Questions for Main Exam (with IDs)
 app.get("/fetch-questions", (req, res) => {
     const quizName = req.query.quizName;
-    let fileName = "";
+    const fileMap = {
+        "Management": "questions.json",
+        "Emerging Trends in Computer & IT": "questions2.json",
+        "Environmental Studies": "questions3.json"
+    };
 
-    if (quizName === "Management") {
-        fileName = "questions.json";
-    } else if (quizName === "Emerging Trends in Computer & IT") {
-        fileName = "questions2.json";
-    } else if (quizName === "Environmental Studies") {
-        fileName = "questions3.json";
-    } else {
-        return res.status(400).json({ error: "Invalid quiz selected" });
-    }
+    const fileName = fileMap[quizName];
+    if (!fileName) return res.status(400).json({ error: "Invalid quiz selected" });
 
-    fs.readFile(`data/${fileName}`, "utf8", (err, data) => {
+    const filePath = path.join(__dirname, "data", fileName);
+
+    fs.readFile(filePath, "utf8", (err, data) => {
         if (err) {
-            console.error("❌ Error reading file:", err);
-            res.status(500).json({ error: "File read error" });
-        } else {
-            const questions = JSON.parse(data);
-            const randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 70);
-            res.json(randomQuestions);
+            console.error(`❌ Error reading ${fileName}:`, err);
+            return res.status(500).json({ error: "File read error" });
         }
+
+        const questions = JSON.parse(data).map((question, index) => ({
+            ...question,
+            id: index + 1 // Assign unique ID for each question
+        }));
+
+        const randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 70);
+        res.json(randomQuestions);
     });
 });
 
+// ✅ Default Route - Redirect to Homepage
 app.get("*", (req, res) => {
     console.log("✅ Homepage Loaded");
     res.redirect("/");
 });
+
 
 
 // ✅ Start the Server
