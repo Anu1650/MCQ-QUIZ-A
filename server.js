@@ -24,7 +24,7 @@ app.get("/Homepage", (req, res) => {
 });
 
 // ✅ Index Routes
-["index", "index2", "index3"].forEach((route) => {
+["index", "index2", "index3","index4"].forEach((route) => {
     app.get(`/${route}`, (req, res) => {
         console.log(`✅ ${route} page Loaded`);
         res.render(`${route}.ejs`);
@@ -32,7 +32,7 @@ app.get("/Homepage", (req, res) => {
 });
 
 // ✅ Fetch Questions (with IDs) for Each Index
-["questions", "questions2", "questions3"].forEach((fileName) => {
+["questions", "questions2", "questions3","questions4"].forEach((fileName) => {
     app.get(`/${fileName}`, (req, res) => {
         const filePath = path.join(__dirname, `data/${fileName}.json`);
 
@@ -111,7 +111,8 @@ app.get("/fetch-questions", (req, res) => {
     const fileMap = {
         "Management": "questions.json",
         "Emerging Trends in Computer & IT": "questions2.json",
-        "Environmental Studies": "questions3.json"
+        "Environmental Studies": "questions3.json",
+        "ETI Uity 2 Special":"questions4.json"
     };
 
     const fileName = fileMap[quizName];

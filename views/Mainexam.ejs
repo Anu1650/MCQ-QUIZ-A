@@ -63,6 +63,7 @@
                 <option value="">Select a Quiz</option>
                 <option value="Management">Management</option>
                 <option value="Emerging Trends in Computer & IT">Emerging Trends in Computer & IT</option>
+                <option value="ETI Uity 2 Special">ETI UITY 2 SPECIAL</option>
                 <option value="Environmental Studies">Environmental Studies</option>
             </select>
             <button onclick="startExam()">Start Exam</button>
@@ -147,27 +148,34 @@
     }
     
     function displayQuestion() {
-        if (currentQuestionIndex < 0) currentQuestionIndex = 0;
-        if (currentQuestionIndex >= questions.length) return;
-    
-        let q = questions[currentQuestionIndex];
-        document.getElementById("question").innerText = q.question;
-        let options = document.querySelectorAll(".option");
-    
-        options[0].innerText = q.options.A;
-        options[1].innerText = q.options.B;
-        options[2].innerText = q.options.C;
-        options[3].innerText = q.options.D;
-    
-        options.forEach(btn => btn.classList.remove("selected"));
-    
-        if (selectedAnswers[currentQuestionIndex] !== undefined) {
-            let selectedIndex = selectedAnswers[currentQuestionIndex];
-            options[selectedIndex].classList.add("selected");
+    if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+    if (currentQuestionIndex >= questions.length) return;
+
+    let q = questions[currentQuestionIndex];
+    document.getElementById("question").innerText = q.question;
+
+    let options = document.querySelectorAll(".option");
+    let optionKeys = ["A", "B", "C", "D"];
+
+    options.forEach((btn, index) => {
+        let optionText = q.options?.[optionKeys[index]]; // Safely get the option text
+        if (optionText) {
+            btn.innerText = optionText;
+            btn.style.display = "block"; // Show only available options
+        } else {
+            btn.style.display = "none"; // Hide missing options
         }
-    
-        updateStats();
+        btn.classList.remove("selected");
+    });
+
+    if (selectedAnswers[currentQuestionIndex] !== undefined) {
+        let selectedIndex = selectedAnswers[currentQuestionIndex];
+        options[selectedIndex].classList.add("selected");
     }
+
+    updateStats();
+}
+
     
     function selectAnswer(selectedIndex) {
         selectedAnswers[currentQuestionIndex] = selectedIndex;
@@ -206,7 +214,7 @@
     let attempted = attemptedQuestions.size;
 
     if (attempted < totalQuestions) {
-        alert(`You have attempted only ${attempted} out of ${totalQuestions} questions. Please attempt all before submitting.`);
+        alert("⚠ All questions are compulsory! Please attempt all questions before submitting.");
         return;
     }
 
@@ -217,7 +225,7 @@
     questions.forEach((q, index) => {
         if (selectedAnswers[index] !== undefined) {
             let selectedOption = selectedAnswers[index];
-            let correctOption = ["A", "B", "C", "D"].indexOf(q.correct_option.toUpperCase());
+            let correctOption = ["A", "B", "C", "D"].indexOf(q.correct_option?.trim().toUpperCase());
             if (selectedOption === correctOption) {
                 correct++;
             }
