@@ -1,0 +1,510 @@
+[
+    {
+        "question": "Industrial safety management is that branch of management which is concerned with ______ hazards from the industries.",
+        "options": {
+            "A": "Reducing",
+            "B": "Controlling",
+            "C": "Eliminating",
+            "D": "All of the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "The following is(are) physical hazard agent(s):",
+        "options": {
+            "A": "Falls",
+            "B": "Inhalation",
+            "C": "Electricity",
+            "D": "All of the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Which device is used to push material into the cutting area?",
+        "options": {
+            "A": "Push Button",
+            "B": "Push Stick",
+            "C": "Push Bar",
+            "D": "None of Above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "First aid is…",
+        "options": {
+            "A": "Temporary and immediate care given to the victim",
+            "B": "Permanent care given to victim",
+            "C": "Both a and b",
+            "D": "Neither a nor b"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "Which of the following precautions is/are necessary in electrical work?",
+        "options": {
+            "A": "The equipment’s should be earthed properly",
+            "B": "Cable should be completely insulated",
+            "C": "Cable should have any joints",
+            "D": "Both a and b"
+        },
+        "correct_option": "D"
+    },
+        {
+            "question": "SMS Means ----",
+            "options": {
+                "A": "Safety management society",
+                "B": "Safety Management System",
+                "C": "Safety Moving System",
+                "D": "None of above"
+            },
+            "correct_option": "B"
+        },
+        {
+            "question": "Long form of PPE",
+            "options": {
+                "A": "Personal Productive Equipment",
+                "B": "Production Planning Engineering",
+                "C": "Personal Protective Equipment",
+                "D": "None of above"
+            },
+            "correct_option": "C"
+        },
+        {
+            "question": "If you wanted to convey the most severe type of hazard, which word would you use?",
+            "options": {
+                "A": "Warning",
+                "B": "Notice",
+                "C": "Danger",
+                "D": "Caution"
+            },
+            "correct_option": "C"
+        },
+        {
+            "question": "Safety promotes",
+            "options": {
+                "A": "Sales",
+                "B": "Productivity",
+                "C": "Research",
+                "D": "Profit"
+            },
+            "correct_option": "B"
+        },
+        {
+            "question": "Which of the following is not concerned with general safety norms?",
+            "options": {
+                "A": "Perform Job Safely",
+                "B": "Follow rules and regulation",
+                "C": "Incident not reported to supervisor",
+                "D": "Eliminate fire hazards"
+            },
+            "correct_option": "C"
+        },
+            {
+                "question": "Safety Programmes is a continuous process to achieve adequate ____.",
+                "options": {
+                    "A": "Profit",
+                    "B": "Sales",
+                    "C": "Safety",
+                    "D": "Loss"
+                },
+                "correct_option": "C"
+            },
+            {
+                "question": "Four E’s of Safety are ____.",
+                "options": {
+                    "A": "Engineering, Education, Enlistment, Enforcement",
+                    "B": "Engineering, Education, Enlistment, Environment",
+                    "C": "Environment, Education, Enlistment, Enforcement",
+                    "D": "Engineering, Economic, Enlistment, Enforcement"
+                },
+                "correct_option": "A"
+            },
+            {
+                "question": "Which equipment is used for protection of lungs?",
+                "options": {
+                    "A": "Hard Hats",
+                    "B": "Shields",
+                    "C": "Gas Masks",
+                    "D": "Apron"
+                },
+                "correct_option": "C"
+            },
+            {
+                "question": "Electrical insulation should be tested ____.",
+                "options": {
+                    "A": "Frequency",
+                    "B": "Monthly",
+                    "C": "Periodically",
+                    "D": "Daily"
+                },
+                "correct_option": "C"
+            },
+            {
+                "question": "Repair work should be done after switching the ____.",
+                "options": {
+                    "A": "Power on",
+                    "B": "Power off",
+                    "C": "Shut down",
+                    "D": "All of the above"
+                },
+                 "correct_option": "B"
+            },
+                {
+                    "question": "You should wear eye, head and face protection if you are working with which of the following tools?",
+                    "options": {
+                        "A": "Portable abrasive wheel tools",
+                        "B": "Electric tools",
+                        "C": "Pneumatic tools",
+                        "D": "Liquid fuel tools"
+                    },
+                    "correct_option": "C"
+                },
+                {
+                    "question": "The most dangerous place to use electrical equipment’s is ____.",
+                    "options": {
+                        "A": "Near a ladder",
+                        "B": "Outdoors",
+                        "C": "Near water",
+                        "D": "Near other electric equipment’s"
+                    },
+                    "correct_option": "C"
+                },
+                {
+                    "question": "Which equipment is used for protection of eyes?",
+                    "options": {
+                        "A": "Face mask",
+                        "B": "Goggles",
+                        "C": "Gas mask",
+                        "D": "Asbestos clothing"
+                    },
+                    "correct_option": "B"
+                },
+                {
+                    "question": "One way to learn to operate your equipment properly and safely is to read ____.",
+                    "options": {
+                        "A": "Safety datasheet",
+                        "B": "Manufacturer’s instructions",
+                        "C": "OSHA’s general duty clause",
+                        "D": "None of above"
+                    },
+                    "correct_option": "B"
+                },
+                {
+                    "question": "Safe and proper equipment operation generally includes ____.",
+                    "options": {
+                        "A": "Inspection and maintenance",
+                        "B": "Warming it up",
+                        "C": "Knowing how to contact emergency",
+                        "D": "All of above"
+                    },
+                    "correct_option": "A"
+                },
+                    {
+                        "question": "SOP means ____.",
+                        "options": {
+                            "A": "Safe operating procedure",
+                            "B": "Standard operating Process",
+                            "C": "Safe operation procedure",
+                            "D": "Standard operation policy"
+                        },
+                        "correct_option": "A"
+                    },
+                    {
+                        "question": "Safe operating procedure is revised ____.",
+                        "options": {
+                            "A": "No",
+                            "B": "Yes",
+                            "C": "Can’t say",
+                            "D": "None of these"
+                        },
+                        "correct_option": "B"
+                    },
+                    {
+                        "question": "Who is responsible to take care of health and safety of worker?",
+                        "options": {
+                            "A": "Worker",
+                            "B": "Safety committee",
+                            "C": "Manager",
+                            "D": "All of above"
+                        },
+                        "correct_option": "C"
+                    },
+                    {
+                        "question": "SOP is a _____ document.",
+                        "options": {
+                            "A": "Oral",
+                            "B": "Written",
+                            "C": "None of above",
+                            "D": "Visual"
+                        },
+                        "correct_option": "B"
+                    },
+                    {
+                        "question": "Who ensure to follow safe procedure?",
+                        "options": {
+                            "A": "Employers",
+                            "B": "Workers",
+                            "C": "Managers",
+                            "D": "All of the above"
+                        },
+                        "correct_option": "D"
+                    },
+                        {
+                            "question": "Issue means ____.",
+                            "options": {
+                                "A": "Pre job check",
+                                "B": "Post job check",
+                                "C": "During Job check",
+                                "D": "None of Above"
+                            },
+                            "correct_option": "A"
+                        },
+                        {
+                            "question": "In permit to work system a document is ____.",
+                            "options": {
+                                "A": "Oral",
+                                "B": "Written",
+                                "C": "Visual",
+                                "D": "None of these"
+                            },
+                            "correct_option": "B"
+                        },
+                        {
+                            "question": "Confined space includes ____.",
+                            "options": {
+                                "A": "Storage bins",
+                                "B": "Silos",
+                                "C": "Tanks",
+                                "D": "Grounds"
+                            },
+                            "correct_option": "C"
+                        },
+                        {
+                            "question": "Inspection is an example of ____.",
+                            "options": {
+                                "A": "Hot work permit",
+                                "B": "Cold work permit",
+                                "C": "Electrical permit",
+                                "D": "Ground disturbance permit"
+                            },
+                            "correct_option": "B"
+                        },
+                        {
+                            "question": "In work permit system, who is responsible for keeping area and staff safe?",
+                            "options": {
+                                "A": "Issuer, Executer, Field operator",
+                                "B": "Manager, Engineer, Worker",
+                                "C": "Supervisor, Officer, Engineer",
+                                "D": "None of the above"
+                            },
+                            "correct_option": "A"
+                        },
+                            {
+                                "question": "____ is a sudden and unfortunate happening which causes damage or loss of property, material or human.",
+                                "options": {
+                                    "A": "Accident",
+                                    "B": "Activity",
+                                    "C": "Process",
+                                    "D": "Movement"
+                                },
+                                "correct_option": "A"
+                            },
+                            {
+                                "question": "General causes of accidents are as follows:",
+                                "options": {
+                                    "A": "Accidents due to dangerous machines",
+                                    "B": "Unsafe physical conditions",
+                                    "C": "Moving objects",
+                                    "D": "All of the above"
+                                },
+                                "correct_option": "D"
+                            },
+                            {
+                                "question": "Which of the following may be the cause of accident?",
+                                "options": {
+                                    "A": "Overconfidence of the employee",
+                                    "B": "Proper training",
+                                    "C": "Sound knowledge",
+                                    "D": "None of the above"
+                                },
+                                "correct_option": "A"
+                            },
+                            {
+                                "question": "Taking shortcuts and lack of adequate knowledge are causes of accidents because of ______.",
+                                "options": {
+                                    "A": "Workers",
+                                    "B": "Management",
+                                    "C": "Faculty layout",
+                                    "D": "Natural disaster"
+                                },
+                                "correct_option": "A"
+                            },
+                            {
+                                "question": "Why should near misses be reported?",
+                                "options": {
+                                    "A": "To educate employees",
+                                    "B": "To test the first aider",
+                                    "C": "To ensure complete recovery",
+                                    "D": "To stop a more serious event occurring"
+                                },
+                                "correct_option": "D"
+                            },
+                                {
+                                    "question": "An accident is ____.",
+                                    "options": {
+                                        "A": "An unsafe act",
+                                        "B": "An unsafe condition",
+                                        "C": "Unplanned, something that happens by chance",
+                                        "D": "None of the above"
+                                    },
+                                    "correct_option": "C"
+                                },
+                                {
+                                    "question": "I can help prevent accidents by ____.",
+                                    "options": {
+                                        "A": "Using my own equipment’s",
+                                        "B": "Doing only what I am trained to do",
+                                        "C": "Riding in car pools",
+                                        "D": "Helping others with their jobs"
+                                    },
+                                    "correct_option": "B"
+                                },
+                                {
+                                    "question": "In case of accident, the victim should immediately be ____.",
+                                    "options": {
+                                        "A": "Asked to take rest",
+                                        "B": "Enquires about the accident",
+                                        "C": "Attended to",
+                                        "D": "Left to himself without treatment"
+                                    },
+                                    "correct_option": "C"
+                                },
+                                {
+                                    "question": "Accidents are ____.",
+                                    "options": {
+                                        "A": "Preventable",
+                                        "B": "Costly",
+                                        "C": "Part of life",
+                                        "D": "Both a and b"
+                                    },
+                                    "correct_option": "D"
+                                },
+                                {
+                                    "question": "If I have an accident or injury I should ____.",
+                                    "options": {
+                                        "A": "Fix what I broke",
+                                        "B": "Tell my supervisor",
+                                        "C": "Keep working and not worry about it",
+                                        "D": "Report it within a week"
+                                    },
+                                    "correct_option": "B"
+                                },
+                                    {
+                                        "question": "The responsibility of fire prevention belongs to ____.",
+                                        "options": {
+                                            "A": "Manager",
+                                            "B": "Supervisor",
+                                            "C": "Everyone",
+                                            "D": "Fire department"
+                                        },
+                                        "correct_option": "C"
+                                    },
+                                    {
+                                        "question": "I can prevent electrical fire by ____.",
+                                        "options": {
+                                            "A": "Non turning on lights",
+                                            "B": "Never plugging anything into a outlet",
+                                            "C": "Both a and b above",
+                                            "D": "Not overloading electrical circuit"
+                                        },
+                                        "correct_option": "D"
+                                    },
+                                    {
+                                        "question": "Fire extinguishers have a short use period of about ____.",
+                                        "options": {
+                                            "A": "8-15 sec",
+                                            "B": "1-2 min",
+                                            "C": "2-3 hours",
+                                            "D": "4-5 days"
+                                        },
+                                        "correct_option": "A"
+                                    },
+                                    {
+                                        "question": "Which of the following colours allows you to identify a foam fire extinguisher?",
+                                        "options": {
+                                            "A": "Blue",
+                                            "B": "Red",
+                                            "C": "Yellow",
+                                            "D": "Cream"
+                                        },
+                                        "correct_option": "D"
+                                    },
+                                    {
+                                        "question": "The acronym for putting out a fire using a fire extinguisher is PASS. What does PASS stand for?",
+                                        "options": {
+                                            "A": "Pull, Aim, Squeeze, Spread",
+                                            "B": "Pull, Accuracy, Squeeze, Spread",
+                                            "C": "Pin, Aim, Squeeze, Sweep",
+                                            "D": "Pull, Aim, Squeeze, Sweep"
+                                        },
+                                        "correct_option": "D"
+                                    },
+                                        {
+                                            "question": "Which of the following types of materials is responsible for fuelling a Class A fire?",
+                                            "options": {
+                                                "A": "Oils that you typically cook with",
+                                                "B": "Flammable liquids",
+                                                "C": "Electrical Equipment",
+                                                "D": "Wood, plastic, paper, and other kinds of solid materials"
+                                            },
+                                            "correct_option": "D"
+                                        },
+                                        {
+                                            "question": "In the event of a fire, everyone is responsible for:",
+                                            "options": {
+                                                "A": "Informing the supervisor of what is happening.",
+                                                "B": "Pulling the fire alarm if they see a fire.",
+                                                "C": "Making sure everyone gets to the fire assembly point safely",
+                                                "D": "None of the above"
+                                            },
+                                            "correct_option": "B"
+                                        },
+                                        {
+                                            "question": "What type of permit is needed in order to carry out work that could potentially result in a fire breaking out on the work site?",
+                                            "options": {
+                                                "A": "A fire permit",
+                                                "B": "A hot permit",
+                                                "C": "A work permit",
+                                                "D": "No permit is needed"
+                                            },
+                                            "correct_option": "B"
+                                        },
+                                        {
+                                            "question": "What class of fire was a Combustible Metal?",
+                                            "options": {
+                                                "A": "Class A fire",
+                                                "B": "Class D fire",
+                                                "C": "Class F fire",
+                                                "D": "Class B fire"
+                                            },
+                                            "correct_option": "B"
+                                        },
+                                        {
+                                            "question": "Who has the authority to pull the fire alarm after discovering a fire on the worksite?",
+                                            "options": {
+                                                "A": "Only the manager can activate the fire alarm",
+                                                "B": "Anyone who has seen a fire can activate the fire alarm.",
+                                                "C": "Only the health and safety rep can activate the fire alarm",
+                                                "D": "Only the owner can activate the fire alarm."
+                                            },
+                                            "correct_option": "B"
+                                        }
+                                    ]
+
+                                
+                                
+                            
+                            
+                    
+                
+            

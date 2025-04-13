@@ -1,0 +1,602 @@
+[
+    {
+        "question": "Industrial legislation necessary for ____.",
+        "options": {
+            "A": "Social welfare of worker",
+            "B": "Economic benefits of workers",
+            "C": "Improve efficiency of industry",
+            "D": "All above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Industrial legislation safeguards the ______ against exploitation.",
+        "options": {
+            "A": "Top management",
+            "B": "Workers",
+            "C": "Middle Management",
+            "D": "All above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Factories act came into force from ____.",
+        "options": {
+            "A": "1948",
+            "B": "1950",
+            "C": "1972",
+            "D": "1976"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "Which industrial act safeguards interests of workers regarding their health, safety and welfare?",
+        "options": {
+            "A": "Indian factories act",
+            "B": "Minimum wages act",
+            "C": "Workmen’s compensation act",
+            "D": "Industrial dispute act"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "It is an Act to provide for the compensation for injury by accident.",
+        "options": {
+            "A": "Indian factories act",
+            "B": "Minimum wages act",
+            "C": "Workmen’s compensation act",
+            "D": "Industrial dispute act"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "Indian factory act came into force on ____.",
+        "options": {
+            "A": "1st May 1960",
+            "B": "1st April 1949",
+            "C": "15th August 1947",
+            "D": "26th January 1950"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "As per Indian factory act, The person who has control over the affairs of factory is known as ____.",
+        "options": {
+            "A": "Employee",
+            "B": "Worker",
+            "C": "Occupier",
+            "D": "None of the above"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "As per Indian Factory act, Employer has to provide canteen facility, if there are ____ number of employees.",
+        "options": {
+            "A": "50",
+            "B": "100",
+            "C": "200",
+            "D": "250"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "____ is not a statutory welfare facility under Factory act.",
+        "options": {
+            "A": "Canteen",
+            "B": "Medical",
+            "C": "Transport",
+            "D": "None of the above"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "Arrangements of drinking water is mentioned under ____ section of Factory act.",
+        "options": {
+            "A": "15",
+            "B": "11",
+            "C": "10",
+            "D": "18"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "The occupier of a factory is required to send written notice to the Chief Inspector of Factories at least ____ days before he begins to occupy the premises as factory.",
+        "options": {
+            "A": "7",
+            "B": "15",
+            "C": "10",
+            "D": "30"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "As per the Factories Act, 1948 any engine, motor or other appliance which generates or otherwise provides power is termed as ____.",
+        "options": {
+            "A": "Prime Mover",
+            "B": "Machinery",
+            "C": "Equipment",
+            "D": "All of the Above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "As per section 16 of the Factory Act, 1948 the minimum space to be allocated to each worker employed in the factory is ____.",
+        "options": {
+            "A": "12.2 cu.met",
+            "B": "13.2 cu.met",
+            "C": "4.2 cu.met",
+            "D": "15.2 cu.met"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "An adult worker is allowed to work for ____ hours in a week.",
+        "options": {
+            "A": "35",
+            "B": "48",
+            "C": "40",
+            "D": "45"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Section 2 (m) of the Factory Act 1948 says about ____.",
+        "options": {
+            "A": "Factory",
+            "B": "Manufacturing Process",
+            "C": "Workers",
+            "D": "All of the Above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "The maximum daily hours of work in a day with normal wage allowed in factories is -----------.",
+        "options": {
+            "A": "8",
+            "B": "9",
+            "C": "10",
+            "D": "11"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "_________ is the chairman of Site Appraisal Committees.",
+        "options": {
+            "A": "The Chief Inspector of the State",
+            "B": "The Inspector of The District",
+            "C": "Occupier",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "_______ authority enforces the Factory Act 1948.",
+        "options": {
+            "A": "The Heavy Industries Department of Central Government",
+            "B": "Human Resources Department",
+            "C": "The Labour Department of the State Government",
+            "D": "All of the Above"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "_________ means a person who has completed his fourteenth year of age but has not completed his eighteenth year.",
+        "options": {
+            "A": "Adult",
+            "B": "Adolescent",
+            "C": "Workmen",
+            "D": "None of the above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "_________ means a person who has completed his eighteenth year of age.",
+        "options": {
+            "A": "Minor",
+            "B": "Adolescent",
+            "C": "Adult",
+            "D": "None of the above"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "Section 27 under the Industrial dispute act is about ........",
+        "options": {
+            "A": "Manufacturing process",
+            "B": "Penalty for instigation/ Provocation",
+            "C": "Occupier",
+            "D": "None of the above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "--- year did the Industrial Dispute act come into operation.",
+        "options": {
+            "A": "1960",
+            "B": "1947",
+            "C": "2019",
+            "D": "1965"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "-------- is a machinery for the settlement of Industrial Disputes in India.",
+        "options": {
+            "A": "National Commission on Labour",
+            "B": "Wage Board",
+            "C": "Industrial Tribunal",
+            "D": "Standing Labour Committee"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "------- machinery has been mentioned in the Industrial Dispute act accountable for the speedy and amicable settlement of industrial disputes.",
+        "options": {
+            "A": "Adjudication",
+            "B": "Conciliation",
+            "C": "Arbitration",
+            "D": "Appropriate government"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "________ means an interim or a final determination of any industrial dispute or of any question relating there by any labour court.",
+        "options": {
+            "A": "Banking Company",
+            "B": "Conciliation Proceeding",
+            "C": "Closure",
+            "D": "Award"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Industrial Dispute means, Dispute between -----",
+        "options": {
+            "A": "Employer and workmen",
+            "B": "Workmen and workmen",
+            "C": "Employer and Employer",
+            "D": "All of the Above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "The ------- authorities are set up for settling the industrial Dispute.",
+        "options": {
+            "A": "Labor court",
+            "B": "Industrial Tribunal",
+            "C": "Conciliation Board",
+            "D": "All of the Above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "‘Award’ under Industrial Disputes Act, 1947 is-------",
+        "options": {
+            "A": "Interim determination of industrial dispute",
+            "B": "Final determination of industrial dispute",
+            "C": "Arbitration award under Section 10A",
+            "D": "Both A & B"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "How many members does a conciliation board consist of as per the appropriate government?",
+        "options": {
+            "A": "Chairman and 2 or 4 other members",
+            "B": "Chairman and 1 more member",
+            "C": "Chairman and 5 or 6 other members",
+            "D": "Chairman and 10 other members"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "------------- includes any court constituted under any law relating to investigation and settlement of industrial disputes in force in any State",
+        "options": {
+            "A": "Labour court",
+            "B": "District court",
+            "C": "Supreme court",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "No person employed in a public utility service shall go on strike in breach of contract within ____ of giving such a notice.",
+        "options": {
+            "A": "2 weeks",
+            "B": "6 weeks",
+            "C": "1 week",
+            "D": "4 weeks"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Section ____ of industrial dispute act covers the compensation provided to workers who are in continuous service for not less than one year.",
+        "options": {
+            "A": "25",
+            "B": "25A",
+            "C": "25-FFF",
+            "D": "26"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "------- is the time period in which all the awards of the arbitration are to be published from the date of its receipt by the appropriate government.",
+        "options": {
+            "A": "15 days",
+            "B": "7 days",
+            "C": "180 days",
+            "D": "30 days"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Where do the labour court, tribunal and national tribunals submit their awards of the dispute?",
+        "options": {
+            "A": "Appropriate government",
+            "B": "Central government",
+            "C": "Employer",
+            "D": "Conciliation"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "How much compensation does the workman deserve at the time of retrenchment?",
+        "options": {
+            "A": "Equivalent to 15 days average pay",
+            "B": "6 months",
+            "C": "Equivalent to 30 days average pay",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "If death results from the injury, the amount of compensation to the employee equal to",
+        "options": {
+            "A": "40% monthly wages multiplied by the relevant factor",
+            "B": "150% monthly wages multiplied by the relevant factor",
+            "C": "100% monthly wages multiplied by the relevant factor",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "If workmen Loss of both hands or amputation at higher sites then he/she will get compensation ----- percentage of loss of earning capacity",
+        "options": {
+            "A": "25",
+            "B": "100",
+            "C": "50",
+            "D": "None of the above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "If workmen have permanent total disablement, he/she will get compensation amount ----- percentage of monthly wages.",
+        "options": {
+            "A": "50",
+            "B": "25",
+            "C": "100",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "A workmen have Loss of both eyes, then He/ She will get compensation ------ Percentage of loss of earning capacity",
+        "options": {
+            "A": "30",
+            "B": "50",
+            "C": "40",
+            "D": "100"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Most common and usual form of direct compensation paid in organizations is -----",
+        "options": {
+            "A": "base pay and benefits",
+            "B": "variable pay and benefit",
+            "C": "base and variable pay",
+            "D": "All of the above"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "Characteristic of a good compensation system is -------",
+        "options": {
+            "A": "Higher the qualification of worker, higher is compensation",
+            "B": "Higher the efficiency of worker, higher is compensation",
+            "C": "Higher the rank of worker, higher is compensation",
+            "D": "All of the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Major factors influencing compensation of worker are -----",
+        "options": {
+            "A": "skill",
+            "B": "effort",
+            "C": "working condition",
+            "D": "All of the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Under this Act, employer shall not be liable to pay compensation in respect of any injury not resulting in death or permanent total disablement caused by an accident",
+        "options": {
+            "A": "Under the influence of drink or drug",
+            "B": "Due to the wilful disobedience of the workman to an order expressly given or to a rule expressly framed for the purpose of securing the safety of workmen",
+            "C": "Due to the wilful removal or disregard by the workman of any safety guard or other device he knew to have been provided for the purpose of securing the safety of workman",
+            "D": "All the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "While working at the construction of a multi-storeyed building of a company, a worker employed by a ‘contractor’, supplied by a ‘sirdar’, faced an accident and became temporarily disabled. For paying compensation to the worker, who shall be held responsible as per law?",
+        "options": {
+            "A": "Individual manager subordinate to an employer cannot act as managing agent.",
+            "B": "Managing agent includes an individual manager subordinate to an employer.",
+            "C": "Only employer can act as managing agent.",
+            "D": "The appropriate government shall appoint managing agent."
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "Who is responsible for compensating the worker in the above scenario?",
+        "options": {
+            "A": "The contractor who employed the worker",
+            "B": "The sirdar who supplied the worker",
+            "C": "Both (A) and (B)",
+            "D": "None of the above"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "The maximum daily hours of work in a day with normal wage allowed in factories is -----------",
+        "options": {
+            "A": "8",
+            "B": "9",
+            "C": "10",
+            "D": "11"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Minimum rates of wages may be fixed by -----",
+        "options": {
+            "A": "Hour",
+            "B": "Day",
+            "C": "Month",
+            "D": "All of the above"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Basic compensations given to employees as salaries or wages are called -------",
+        "options": {
+            "A": "Basic pay",
+            "B": "Wages",
+            "C": "Salary",
+            "D": "Variable pay"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "---------- is the total cash and non-cash payments that you give to an employee in exchange for the work they do for your business.",
+        "options": {
+            "A": "Salary",
+            "B": "Compensation",
+            "C": "Payment",
+            "D": "All of the above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "In graduated time rates system, if basic salary is Rs.2000 and dearness allowance is 150% then total remuneration will be Rs. -----",
+        "options": {
+            "A": "3000",
+            "B": "5000",
+            "C": "2000",
+            "D": "2150"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "----- is the maximum wage period for the payment of wages",
+        "options": {
+            "A": "15 days",
+            "B": "21 days",
+            "C": "1 day",
+            "D": "1 month"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "-------- deductions is not authorized payment of wages act",
+        "options": {
+            "A": "Deduction for Fines",
+            "B": "Deduction for payment of Income tax",
+            "C": "Deduction for Payment of insurance",
+            "D": "Deduction for payment of uniform and property"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "-------- of the wages payable is the maximum limit of fine to be imposed on an employee",
+        "options": {
+            "A": "5%",
+            "B": "1%",
+            "C": "3%",
+            "D": "10%"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "------- means all remuneration expressed in terms of money",
+        "options": {
+            "A": "Salary",
+            "B": "Wages",
+            "C": "Mobadla",
+            "D": "All of the above"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "According to the definition of 'Week' under the Minimum wage Act, it is a period of 7 days beginning at midnight on______",
+        "options": {
+            "A": "Sunday",
+            "B": "Monday",
+            "C": "Friday",
+            "D": "Saturday"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Leave with wages is allowed for employees if they work for _____ days in a month",
+        "options": {
+            "A": "28",
+            "B": "20",
+            "C": "30",
+            "D": "31"
+        },
+        "correct_option": "B"
+    },
+    {
+        "question": "Under Minimum Wages Act an Adult means a Person who has completed age of -------- years",
+        "options": {
+            "A": "18",
+            "B": "15",
+            "C": "16",
+            "D": "19"
+        },
+        "correct_option": "A"
+    },
+    {
+        "question": "Statutory Minimum wage is fixed under",
+        "options": {
+            "A": "Payment of Wages Act, 1936",
+            "B": "Equal Remuneration Act, 1976",
+            "C": "Workmen’s Compensation Act, 1923",
+            "D": "Minimum Wages Act, 1948"
+        },
+        "correct_option": "D"
+    },
+    {
+        "question": "Under the Minimum Wages Act, 1948 the appropriate government shall fix the minimum rates of wages payable to the employees employed in an employment specified in",
+        "options": {
+            "A": "Schedule I part I",
+            "B": "Schedule I part II",
+            "C": "Schedule I, Part I, II and the employments and added under section 27",
+            "D": "Schedule I and II"
+        },
+        "correct_option": "C"
+    },
+    {
+        "question": "Which of the following is not a method for fixing Minimum Wages under the Minimum Wages Act, 1948?",
+        "options": {
+            "A": "Notification Method",
+            "B": "Committee Method",
+            "C": "Bargaining Method",
+            "D": "None of the above"
+        },
+        "correct_option": "C"
+    }
+]
