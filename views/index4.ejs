@@ -158,6 +158,27 @@
                 box-shadow: none;
             }
         }
+        @media (max-width: 768px) {
+    .number-panel {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        background-color: #f4f4f4;
+        padding: 40px 5px 5px 5px; /* 🧠 this adds enough top padding for the numbers to breathe */
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .number-button {
+        width: calc(33.33% - 10px);
+        margin: 5px;
+    }
+}
+
     </style>
 </head>
 <body>
