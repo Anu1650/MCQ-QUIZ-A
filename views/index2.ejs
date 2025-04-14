@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCQ Quiz</title>
+    <!DOCTYPE html>
+<html lang="en">
     <style>
         * {
             box-sizing: border-box;
@@ -16,30 +18,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .wrapper {
             display: flex;
+            flex-direction: row;
             width: 90%;
-            height: 90vh;
+            max-height: 90vh;
             background: white;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0,0,0,0.3);
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
+    
         .number-panel {
             background: #eee;
             width: 20%;
             padding: 10px;
-            overflow-y: auto;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
             grid-gap: 10px;
             justify-items: center;
             border-right: 2px solid rgba(0,0,0,0.1);
             box-shadow: inset -3px 0 5px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            max-height: 90vh;
         }
+    
         .number-panel button {
             width: 40px;
             height: 40px;
@@ -50,45 +56,54 @@
             font-weight: bold;
             transition: 0.3s;
         }
+    
         .number-panel button.attempted {
             background: #28a745;
             color: white;
         }
+    
         .number-panel button.current {
             background: #007bff;
             color: white;
         }
+    
         .quiz-area {
             flex: 1;
             padding: 20px;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            overflow-y: auto;
             align-items: center;
             border-left: 2px solid rgba(0,0,0,0.1);
             box-shadow: inset 3px 0 5px rgba(0,0,0,0.05);
             text-align: center;
         }
+    
         .quiz-area h1 {
             margin: 10px 0;
         }
+    
         .quiz-area .stats {
             margin: 10px 0;
             font-size: 16px;
         }
+    
         .quiz-area h3 {
             align-self: flex-start;
         }
+    
         .quiz-area h3 a {
             text-decoration: none;
             color: #007bff;
             display: inline-block;
             margin-bottom: 10px;
         }
+    
         .quiz-area h3 a:hover {
             text-decoration: underline;
         }
+    
         .option {
             display: block;
             width: 100%;
@@ -103,25 +118,32 @@
             transition: 0.3s;
             text-align: center;
         }
+    
         .option:hover {
             background: #0056b3;
         }
+    
         .correct, .wrong, .selected {
             text-align: center;
         }
+    
         .correct {
             background: green !important;
         }
+    
         .wrong {
             background: red !important;
         }
+    
         .selected {
             background: orange !important;
         }
+    
         .btn-container {
             margin-top: 15px;
             text-align: center;
         }
+    
         .btn {
             padding: 10px 15px;
             margin: 5px;
@@ -130,51 +152,53 @@
             border-radius: 5px;
             cursor: pointer;
         }
+    
         .prev { background: #6c757d; color: white; }
         .prev:hover { background: orange; }
         .next { background: #28a745; color: white; }
         .next:hover { background: #218838; }
+    
         .result-container {
             display: none;
             text-align: center;
         }
+    
         @media (max-width: 768px) {
-
-.quiz-layout {
-    display: block;
-    padding-bottom: 120px; /* Reserve space for number panel so options don't get covered */
-}
-
-.number-panel {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-height: 40%;   /* Avoid covering too much space */
-    overflow-y: auto;
-    background-color: #f4f4f4;
-    padding: 10px 5px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.number-button {
-    width: calc(33.33% - 10px);
-    margin: 5px;
-}
-}
-
-
+            .wrapper {
+                flex-direction: column;
+                width: 95%;
+                max-height: none;
+                height: auto;
+            }
+    
+            .quiz-area {
+                border-left: none;
+                box-shadow: none;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+    
+            .number-panel {
+                width: 100%;
+                max-height: none;
+                overflow-y: auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+                grid-gap: 10px;
+                justify-items: center;
+                border: none;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+                margin-bottom: 20px;
+            }
+    
+            .number-panel button {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+        }
     </style>
-</head>
-<body>
-
 <div class="wrapper">
-    <div class="number-panel" id="number-panel">
-    </div>
     <div class="quiz-area" id="quiz-container">
         <h3><a href="/Homepage">Back</a></h3>
         <h1>MCQ Quiz</h1>
@@ -190,10 +214,13 @@
         <button class="option" onclick="selectAnswer(3)">Option D</button>
         <p id="result"></p>
         <div class="btn-container">
-            <button class="btn prev" onclick="prevQuestion()">Previous</button>
-            <button class="btn next" onclick="nextQuestion()">Next</button>
+            <button class="btn btn-success prev" id="prev-button" onclick="prevQuestion()">Previous</button>
+            <button class="btn btn-success next" id="next-button" onclick="nextQuestion()">Next</button>
+
             <button class="btn" id="submit-button" onclick="submitExam()">Submit Exam</button>
         </div>
+    </div>
+    <div class="number-panel" id="number-panel">
     </div>
 </div>
 
@@ -301,29 +328,20 @@
         let options = document.querySelectorAll(".option");
         let correctIndex = ["A", "B", "C", "D"].indexOf(questions[currentQuestionIndex].correct_option);
 
-        // Reset all option styles before applying the new one
         options.forEach(btn => btn.className = "option");
-
-        // Apply selected style to the clicked option
         options[selectedIndex].classList.add("selected");
-        
-        // Store the selected answer for the current question
-        selectedAnswers[currentQuestionIndex] = ["A", "B", "C", "D"][selectedIndex];
 
-        // Mark question as attempted
+        selectedAnswers[currentQuestionIndex] = ["A", "B", "C", "D"][selectedIndex];
         attemptedQuestions.add(currentQuestionIndex);
 
-        // Check if the selected option is correct
         if (selectedIndex === correctIndex) {
             options[selectedIndex].classList.add("correct");
             document.getElementById("result").innerText = "✅ Correct!";
             correctAnswers++;
         } else {
             options[selectedIndex].classList.add("wrong");
-            document.getElementById("result").innerText = "❌ Wrong!";
+            document.getElementById("result").innerText = "❌ Wrong! Try again.";
         }
-
-        // Update attempted question count and stats
         attemptedCount = attemptedQuestions.size;
         updateStats();
         updateNumberPanel();
@@ -341,7 +359,6 @@
             currentQuestionIndex++;
             displayQuestion();
         }
-        updateNavigationButtons();
     }
 
     function updateStats() {
@@ -390,12 +407,12 @@
     }
 
     function showUnderConstruction() {
-        document.getElementById("quiz-container").innerHTML = `
-            <p class="error-message">🚧 Website is under construction. Please try again later.</p>
-            <p class="Back to home">
-                <h3><a href="/Homepage">Back To Home</a></h3>
-            </p>`;
-    }
+            document.getElementById("quiz-container").innerHTML = `
+                <p class="error-message">🚧 Website is under construction. Please try again later.</p>
+                <p class="Back to home">
+                    <h3><a href="/Homepage">Back To Home</a></h3>
+                </p>`;
+        }
 
     function updateNavigationButtons() {
         const nextButton = document.getElementById("next-button");
@@ -422,7 +439,6 @@
 
     loadQuestions();
 </script>
-
 
 </body>
 </html>
