@@ -24,7 +24,7 @@ app.get("/Homepage", (req, res) => {
 });
 
 // ✅ Index Routes
-["index", "index2", "index3","index4","index5","index6"].forEach((route) => {
+["index", "index2", "index3","index4","index5","index6","index7"].forEach((route) => {
     app.get(`/${route}`, (req, res) => {
         console.log(`✅ ${route} page Loaded`);
         res.render(`${route}.ejs`);

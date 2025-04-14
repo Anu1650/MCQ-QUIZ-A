@@ -1181,7 +1181,7 @@
         "C": "Trojan",
         "D": "Antivirus"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "According to the CIA Triad, which of the below-mentioned element is not considered in the triad?",
@@ -1191,7 +1191,7 @@
         "C": "Authenticity",
         "D": "Availability"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "______ is the latest technology that faces an extra challenge because of the CIA paradigm.",
@@ -1201,7 +1201,7 @@
         "C": "Cloud storages",
         "D": "Smart dust"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "One common way to maintain data availability is",
@@ -1211,7 +1211,7 @@
         "C": "Data recovery",
         "D": "Data Altering"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "______ is the practice and precautions taken to protect valuable information from unauthorized access, recording, disclosure, or destruction.",
@@ -1221,7 +1221,7 @@
         "C": "Information Security",
         "D": "Physical Security"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "From the options below, which of them is not a vulnerability to information security?",
@@ -1231,7 +1231,7 @@
         "C": "Unchanged default password",
         "D": "Latest patches and updates not done"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "______ platforms are used for safety and protection of information in the cloud.",
@@ -1241,7 +1241,7 @@
         "C": "AWS",
         "D": "One Drive"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "______ technology is used for analyzing and monitoring traffic in network and information flow.",
@@ -1251,7 +1251,7 @@
         "C": "Network Security Firewall",
         "D": "Network traffic analysis (NTA)"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Compromising confidential information comes under",
@@ -1261,7 +1261,7 @@
         "C": "Vulnerability",
         "D": "Attack"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Lack of access control policy is a",
@@ -1271,7 +1271,7 @@
         "C": "Vulnerability",
         "D": "Attack"
       },
-      "answer": "C"
+     "correct_option": "C"
     },
     {
       "question": "Possible threat to any information cannot be",
@@ -1281,7 +1281,7 @@
         "C": "Protected",
         "D": "Ignored"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "How many basic processes or steps are there in ethical hacking?",
@@ -1291,7 +1291,7 @@
         "C": "6",
         "D": "7"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "______ is the information gathering phase in ethical hacking from the target user.",
@@ -1301,7 +1301,7 @@
         "C": "Gaining access",
         "D": "Maintaining access"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Which of the following is not a reconnaissance tool or technique for information gathering?",
@@ -1311,7 +1311,7 @@
         "C": "Google Dorks",
         "D": "Nexpose"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "There are ______ subtypes of reconnaissance.",
@@ -1321,7 +1321,7 @@
         "C": "4",
         "D": "5"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Which of the following is an example of active reconnaissance?",
@@ -1331,7 +1331,7 @@
         "C": "Looking for the target’s details in the database",
         "D": "Searching the target’s details in paper files"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is an example of passive reconnaissance?",
@@ -1341,7 +1341,7 @@
         "C": "Talk to the target user in person",
         "D": "Search about target records in an online people database"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Which of them does not come under scanning methodologies?",
@@ -1351,7 +1351,7 @@
         "C": "Port Scanning",
         "D": "Google Dorks"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Which of them is not a scanning tool?",
@@ -1361,7 +1361,7 @@
         "C": "Maltego",
         "D": "Nessus"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following comes after the scanning phase in ethical hacking?",
@@ -1371,7 +1371,7 @@
         "C": "Reconnaissance",
         "D": "Gaining access"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "In ______ phase the hacker exploits the network or system vulnerabilities.",
@@ -1381,7 +1381,7 @@
         "C": "Reconnaissance",
         "D": "Gaining access"
       },
-      "answer": "D"
+     "correct_option": "D"
     },
     {
       "question": "A ______ can gain access illegally to a system if the system is not properly tested in scanning and gaining access phase.",
@@ -1391,7 +1391,7 @@
         "C": "Security auditor",
         "D": "Network analyst"
       },
-      "answer": "B"
+    "correct_option": "B"
     },
     {
       "question": "Which of the following hacking tools and techniques do hackers not use for maintaining access in a system?",
@@ -1401,7 +1401,7 @@
         "C": "Trojans",
         "D": "Wireshark"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "In ______ phase, the hackers try to hide their footprints.",
@@ -1411,7 +1411,7 @@
         "C": "Reconnaissance",
         "D": "Gaining access"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "Which of them is not a track clearing technique?",
@@ -1421,7 +1421,7 @@
         "C": "Port Scanning",
         "D": "Footprint removing"
       },
-      "answer": "C"
+    "correct_option": "C"
     },
     {
       "question": "______ is the last phase of the ethical hacking process.",
@@ -1431,7 +1431,7 @@
         "C": "Reconnaissance",
         "D": "Reporting"
       },
-      "answer": "D"
+     "correct_option": "D"
     },
     {
       "question": "Ethical Hacking is also known as",
@@ -1441,7 +1441,7 @@
         "C": "Encrypting",
         "D": "None of these"
       },
-      "answer": "B"
+   "correct_option": "B"
     },
     {
       "question": "Tool(s) used by ethical hackers",
@@ -1451,7 +1451,7 @@
         "C": "Proxy",
         "D": "All of these"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Vulnerability scanning in ethical hacking finds",
@@ -1461,7 +1461,7 @@
         "C": "A & B",
         "D": "None of these"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Ethical hacking will allow to ______ all the massive security breaches.",
@@ -1471,7 +1471,7 @@
         "C": "Reject",
         "D": "None of these"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Sequential steps hackers use are ______, ______, ______, ______",
@@ -1481,7 +1481,7 @@
         "C": "Scanning",
         "D": "Gaining Access"
       },
-      "answer": "B, C, D, A"
+      "correct_option": "B, C, D, A"
     },
     {
       "question": "______ phase in ethical hacking is known as the pre-attack phase.",
@@ -1491,7 +1491,7 @@
         "C": "Gaining access",
         "D": "Maintaining access"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
           "question": "SNMP stands for",
@@ -1501,7 +1501,7 @@
             "C": "Simple Network Management Protocol",
             "D": "Simple Network Master Protocol"
           },
-          "answer": "C"
+          "correct_option": "C"
         },
         {
           "question": "Which of the following tool is used for Network Testing and port scanning?",
@@ -1511,7 +1511,7 @@
             "C": "NetScan",
             "D": "All of Above"
           },
-          "answer": "D"
+         "correct_option": "D"
         },
         {
           "question": "Banner grabbing is often used for",
@@ -1521,7 +1521,7 @@
             "C": "Gray Hat Hacking",
             "D": "Script Kiddies"
           },
-          "answer": "B"
+          "correct_option": "B"
         },
         {
           "question": "An attacker can create an attack by sending hundreds or thousands of e-mails with very large attachments.",
@@ -1531,7 +1531,7 @@
             "C": "Attachment Overloading Attack",
             "D": "All of the above"
           },
-          "answer": "D"
+        "correct_option": "D"
         },
         {
           "question": "An email bomb is also known as",
@@ -1541,7 +1541,7 @@
             "C": "Letter bomb",
             "D": "All of Above"
           },
-          "answer": "D"
+          "correct_option": "D"
     },
     {
       "question": "______ is any action that might compromise cyber-security.",
@@ -1551,7 +1551,7 @@
         "C": "Exploit",
         "D": "Attack"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Existence of weakness in a system or network is called ______.",
@@ -1561,7 +1561,7 @@
         "C": "Exploit",
         "D": "Attack"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "______ is an act of hacking by the means of which a political or social message is conveyed.",
@@ -1571,7 +1571,7 @@
         "C": "Surveillance",
         "D": "Pseudonymization"
       },
-      "answer": "A"
+    "correct_option": "A"
     },
     {
       "question": "______ is the method of developing or creating a structurally similar yet unauthentic and illegitimate data of any firm or company.",
@@ -1581,7 +1581,7 @@
         "C": "Data breaching",
         "D": "Data duplicating"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Data masking is also known as ______.",
@@ -1591,7 +1591,7 @@
         "C": "Data breaching",
         "D": "Data duplicating"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Backdoors are also known as ______.",
@@ -1601,7 +1601,7 @@
         "C": "Cover doors",
         "D": "Back entry"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Adware are pre-chosen ______ developed to display ads.",
@@ -1611,7 +1611,7 @@
         "C": "malware",
         "D": "shareware"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "______ is an attack technique that occurs when excess data gets written to a memory block.",
@@ -1621,7 +1621,7 @@
         "C": "Buffer overflow",
         "D": "Memory full"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "______ is an attempt to steal, spy, damage or destroy computer systems, networks, or their associated information.",
@@ -1631,7 +1631,7 @@
         "C": "Digital hacking",
         "D": "Computer security"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "______ is a device which secretly collects data from credit/debit cards.",
@@ -1641,7 +1641,7 @@
         "C": "Card Copier",
         "D": "Card Cloner"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "______ is the way or technique through which the majority of malware gets installed in our system.",
@@ -1661,7 +1661,7 @@
         "C": "Website-Duplication",
         "D": "Pharming"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "RAM-Scraping is a special kind of malware that looks (scrape) for sensitive data in the hard drive.",
@@ -1669,7 +1669,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "When you book online tickets by swiping your card, the details of the card get stored in ______.",
@@ -1679,7 +1679,7 @@
         "C": "Servers",
         "D": "Hard drives"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "______ are deadly exploits where the vulnerability is known and found by cyber-criminals but not known and fixed by the owner of that application or company.",
@@ -1689,7 +1689,7 @@
         "C": "Elite exploits",
         "D": "Zero-day exploits"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Zero-day exploits are also called ______.",
@@ -1699,7 +1699,7 @@
         "C": "Un-patched attacks",
         "D": "Un-fixed exploits"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "There are ______ major types of ports in computers.",
@@ -1709,7 +1709,7 @@
         "C": "3",
         "D": "4"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "PS2 and DVI are examples of Logical ports.",
@@ -1717,7 +1717,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "Physical ports are usually referred to as ______.",
@@ -1727,7 +1727,7 @@
         "C": "Interfaces",
         "D": "Hardware plugs"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "______ are logical numbers assigned for logical connections.",
@@ -1737,7 +1737,7 @@
         "C": "Networking cables",
         "D": "IP address"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "Logical ports are also known as ______.",
@@ -1747,7 +1747,7 @@
         "C": "Virtual ports",
         "D": "Network protocol ports"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is the port number for FTP data?",
@@ -1757,7 +1757,7 @@
         "C": "22",
         "D": "23"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Which of the following is the port number for SMTP data?",
@@ -1767,7 +1767,7 @@
         "C": "25",
         "D": "23"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is the port number for FTP control?",
@@ -1777,7 +1777,7 @@
         "C": "22",
         "D": "23"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is the port number for SSH (Secure Shell)?",
@@ -1787,7 +1787,7 @@
         "C": "22",
         "D": "23"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is the port number for Telnet?",
@@ -1797,7 +1797,7 @@
         "C": "22",
         "D": "23"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Which of the following are the port numbers for IPSec service?",
@@ -1807,7 +1807,7 @@
         "C": "51, 52",
         "D": "23, 24"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Which of the following are the port numbers for DHCP?",
@@ -1817,7 +1817,7 @@
         "C": "65, 66",
         "D": "68, 69"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is the port number for TFTP service?",
@@ -1827,7 +1827,7 @@
         "C": "71",
         "D": "72"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "Port 80 handles unencrypted web traffic.",
@@ -1835,7 +1835,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Why is it important to know which service is using which port number?",
@@ -1845,7 +1845,7 @@
         "C": "For understanding which data is going through secured traffic and which is not",
         "D": "For checking unused data traffic"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is the port number for HTTP?",
@@ -1855,7 +1855,7 @@
         "C": "81",
         "D": "82"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is the port number for POP3?",
@@ -1865,7 +1865,7 @@
         "C": "112",
         "D": "113"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "Which of the following is the port number for SNMP?",
@@ -1875,7 +1875,7 @@
         "C": "162",
         "D": "163"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Firewalls can be of how many kinds?",
@@ -1885,7 +1885,7 @@
         "C": "3",
         "D": "4"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "An ethical hacker must need to have the skills of understanding the problem, networking knowledge, and to know how the technology works.",
@@ -1893,7 +1893,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Which of the following enables a hacker to open a piece of program or application and re-build it with further features & capabilities?",
@@ -1903,7 +1903,7 @@
         "C": "Planting malware",
         "D": "Injecting code"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following does NOT come under the intangible skills of hackers?",
@@ -1913,7 +1913,7 @@
         "C": "Persistence",
         "D": "Smart attacking potential"
       },
-      "answer": "D"
+     "correct_option": "D"
     },
     {
       "question": "Why is a programming language important for ethical hackers and security professionals?",
@@ -1923,7 +1923,7 @@
         "C": "To teach programming",
         "D": "To develop programs to harm others"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "Understanding of what is also important for gaining access to a system through networks?",
@@ -1933,7 +1933,7 @@
         "C": "Networking",
         "D": "Hardware"
       },
-      "answer": "C"
+    "correct_option": "C"
     },
     {
       "question": "For hacking a database or accessing and manipulating data, which of the following languages must a hacker know?",
@@ -1943,7 +1943,7 @@
         "C": "Tcl",
         "D": "F#"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "Information gathering about the system, person, organization, or network is not important.",
@@ -1951,7 +1951,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "What is an ethical hacking technique used for determining what operating system (OS) is running on a remote computer?",
@@ -1961,7 +1961,7 @@
         "C": "OS fingerprinting",
         "D": "OS penetration testing"
       },
-      "answer": "C"
+     "correct_option": "C"
     },
     {
       "question": "How many types of fingerprinting are there in ethical hacking?",
@@ -1981,7 +1981,7 @@
         "C": "Nmap",
         "D": "Nessus"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "To secure your system from OS fingerprinting attacks, you have to hide your system behind a VPN or proxy server.",
@@ -1989,7 +1989,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "What is a network scanning practice that hackers use to determine which IP addresses map to live hosts?",
@@ -1999,7 +1999,7 @@
         "C": "Ping-range",
         "D": "Pinging"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Ping sweep is also known as what?",
@@ -2009,7 +2009,7 @@
         "C": "SGNP sweep",
         "D": "SICMP sweep"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "Which command is used on Linux for getting DNS and host-related information?",
@@ -2019,7 +2019,7 @@
         "C": "nslookup",
         "D": "infolookup"
       },
-      "answer": "C"
+     "correct_option": "C"
     },
     {
       "question": "The configuration of DNS needs to be done in a secure way.",
@@ -2027,7 +2027,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "What are pieces of programs or scripts that allow hackers to take control over any system?",
@@ -2037,7 +2037,7 @@
         "C": "Firewall by-passers",
         "D": "Worms"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "The process of finding vulnerabilities and exploiting them using exploitable scripts or programs is known as?",
@@ -2047,7 +2047,7 @@
         "C": "Cracking",
         "D": "Hacking"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is NOT a powerful vulnerability detecting tool?",
@@ -2057,7 +2057,7 @@
         "C": "Metasploit",
         "D": "Nmap"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Which is the specific search engine for exploits where anyone can find all the exploits associated with a vulnerability?",
@@ -2067,7 +2067,7 @@
         "C": "Exploit-db",
         "D": "Exploit-engine"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is NOT a type of cyber crime?",
@@ -2077,7 +2077,7 @@
         "C": "Damage to data and systems",
         "D": "Installing antivirus for protection"
       },
-      "answer": "D"
+     "correct_option": "D"
     },
     {
       "question": "Cyber-laws are incorporated for punishing all criminals only.",
@@ -2085,7 +2085,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "Cyber-crime can be categorized into how many types?",
@@ -2095,7 +2095,7 @@
         "C": "2",
         "D": "6"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Which of the following is not a type of peer-to-peer cyber-crime?",
@@ -2105,7 +2105,7 @@
         "C": "MiTM",
         "D": "Credit card details leak in deep web"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "Which of the following is not an example of a computer as weapon cyber-crime?",
@@ -2115,7 +2115,7 @@
         "C": "IPR Violation",
         "D": "Pornography"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Which of the following is not done by cyber criminals?",
@@ -2125,7 +2125,7 @@
         "C": "Email spoofing and spamming",
         "D": "Report vulnerability in any system"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "What is the name of the IT law that India is having in the Indian legislature?",
@@ -2135,7 +2135,7 @@
         "C": "India’s Information Technology (IT) Act, 2000",
         "D": "The Technology Act, 2008"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "In which year India’s IT Act came into existence?",
@@ -2145,7 +2145,7 @@
         "C": "2002",
         "D": "2003"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "What is the full form of ITA-2000?",
@@ -2155,7 +2155,7 @@
         "C": "International Technology Act -2000",
         "D": "Information Technology Act -2000"
       },
-      "answer": "D"
+     "correct_option": "D"
     },
     {
       "question": "The Information Technology Act -2000 bill was passed by K. R. Narayanan.",
@@ -2163,7 +2163,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "B"
+     "correct_option": "B"
     },
     {
       "question": "Under which section of IT Act, stealing any digital asset or information is written as a cyber-crime?",
@@ -2173,7 +2173,7 @@
         "C": "67",
         "D": "70"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "What is the punishment in India for stealing computer documents, assets, or any software’s source code from any organization, individual, or from any other means?",
@@ -2183,7 +2183,7 @@
         "C": "2 years of imprisonment and a fine of Rs. 250,000",
         "D": "3 years of imprisonment and a fine of Rs. 500,000"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
     {
       "question": "What is the updated version of the IT Act, 2000?",
@@ -2193,7 +2193,7 @@
         "C": "IT Act, 2008",
         "D": "Advanced IT Act, 2008"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "In which year the Indian IT Act, 2000 got updated?",
@@ -2203,7 +2203,7 @@
         "C": "2010",
         "D": "2012"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "What type of cyber-crime, its laws, and punishments does section 66 of the Indian IT Act hold?",
@@ -2213,7 +2213,7 @@
         "C": "Stealing data",
         "D": "Stealing hardware components"
       },
-      "answer": "A"
+    "correct_option": "A"
     },
     {
       "question": "What is the ethics behind training how to hack a system?",
@@ -2223,7 +2223,7 @@
         "C": "To hack a network that is vulnerable",
         "D": "To corrupt software or service using malware"
       },
-      "answer": "A"
+     "correct_option": "A"
     },
     {
       "question": "Performing a shoulder surfing in order to check other’s password is ____ ethical practice.",
@@ -2233,7 +2233,7 @@
         "C": "very good social engineering practice",
         "D": "a bad"
       },
-      "answer": "D"
+   "correct_option": "D"
     },
     {
       "question": "____ has now evolved to be one of the most popular automated tools for unethical hacking.",
@@ -2243,7 +2243,7 @@
         "C": "Malware",
         "D": "Worms"
       },
-      "answer": "C"
+      "correct_option": "C"
     },
     {
       "question": "Leaking your company data to the outside network without prior permission of senior authority is a crime.",
@@ -2251,7 +2251,7 @@
         "A": "True",
         "B": "False"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "____ is the technique used in business organizations and firms to protect IT assets.",
@@ -2261,7 +2261,7 @@
         "C": "Fixing bugs",
         "D": "Internal data-breach"
       },
-      "answer": "A"
+      "correct_option": "A"
     },
     {
       "question": "The legal risks of ethical hacking include lawsuits due to ____ of personal data.",
@@ -2271,7 +2271,7 @@
         "C": "deleting",
         "D": "hacking"
       },
-      "answer": "B"
+      "correct_option": "B"
     },
     {
       "question": "Before performing any penetration test, through legal procedure, which key point listed below is not mandatory?",
@@ -2281,7 +2281,7 @@
         "C": "System and network",
         "D": "Type of broadband company used by the firm"
       },
-      "answer": "D"
+      "correct_option": "D"
     },
   {
     "question": "An ethical hacker must ensure that proprietary information of the firm does not get leaked.",
@@ -2289,7 +2289,7 @@
       "A": "True",
       "B": "False"
     },
-    "answer": "A"
+    "correct_option": "A"
   },
   {
     "question": "After performing ____ the ethical hacker should never disclose client information to other parties.",
@@ -2299,7 +2299,7 @@
       "C": "penetration testing",
       "D": "exploiting"
     },
-    "answer": "C"
+    "correct_option": "C"
   },
   {
     "question": "____ is the branch of cyber security that deals with morality and provides different theories and a principle regarding the viewpoints about what is right and wrong.",
@@ -2309,15 +2309,6 @@
       "C": "Corporate ethics",
       "D": "Ethics in black hat hacking"
     },
-    "answer": "B"
+    "correct_option": "B"
   }
 ]
-
-  
-  
-  
-  
-  
-  
-  
-  

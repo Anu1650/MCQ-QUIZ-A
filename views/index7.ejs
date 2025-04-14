@@ -207,7 +207,7 @@
     let attemptedCount = 0;
 
     function loadQuestions() {
-        fetch("/questions")
+        fetch("/questions3")
             .then(response => {
                 if (!response.ok) throw new Error("Failed to fetch questions.");
                 return response.json();

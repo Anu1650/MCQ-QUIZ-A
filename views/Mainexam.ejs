@@ -8,20 +8,24 @@
         body {
             font-family: Arial, sans-serif;
             background: #f4f4f4;
+            margin: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
-            margin: 0;
-            flex-direction: column;
+            flex-direction: row;
+            overflow-x: hidden;
         }
         .quiz-container {
-            width: 60%;
+            width: 70%;
             background: white;
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             text-align: center;
+            margin-left: 10px;
+            overflow-y: auto;
+            height: calc(100vh - 40px);
         }
         .timer {
             font-size: 24px;
@@ -46,12 +50,71 @@
         .selected { background: orange !important; }
         .btn-container { margin-top: 15px; }
         .btn { padding: 10px 15px; margin: 5px; font-size: 14px; border: none; border-radius: 5px; cursor: pointer; }
-        .prev { background: #6c757d; color: white; }
+        .prev { background: #418bcc; color: white; }
         .next { background: #28a745; color: white; }
         .submit-btn { background: #dc3545; color: white; }
+        .number-panel {
+            display: inline;
+            left: 10px;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            width: 17%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+        .number-panel button {
+            width: 30%;
+            height: 40px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .number-panel button.attempted {
+            background: orangered;
+        }
+        .number-panel button:hover {
+            background: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .quiz-container {
+                width: 100%;
+                margin-left: 0;
+            }
+            .number-panel {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 20px;
+                height: auto;
+            }
+            .number-panel button {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <div class="number-panel" id="number-panel"></div>
 
     <div class="quiz-container">
         <h3 style="text-align: left;"><a href="/Homepage">Back</a></h3>
@@ -88,6 +151,7 @@
             </div>
         </div>
     </div>
+
     <script>
     let timeLeft = 120 * 60;
     let timerInterval;
@@ -97,7 +161,6 @@
     let selectedAnswers = {};
     let attemptedQuestions = new Set();
     let correctAnswers = 0;
-    let m=0;
     
     function startExam() {
         let selectedQuiz = document.getElementById("quizDropdown").value;
@@ -105,21 +168,21 @@
             alert("Please select a quiz!");
             return;
         }
-    
+
         fetch(`/fetch-questions?quizName=${encodeURIComponent(selectedQuiz)}`)
             .then(response => response.json())
             .then(data => {
                 if (!data || data.length == 0) {
-                        showUnderConstruction();
-                        return;
-                    }
-                else if (data.error) throw new Error(data.error);
+                    showUnderConstruction();
+                    return;
+                } else if (data.error) throw new Error(data.error);
                 questions = data;
                 document.getElementById("total-questions").innerText = questions.length;
                 document.getElementById("quiz-selection").style.display = "none";
                 document.getElementById("quiz-content").style.display = "block";
                 startTimer();
                 displayQuestion();
+                generateNumberPanel();
             })
             .catch(error => {
                 showUnderConstruction();
@@ -127,16 +190,18 @@
                 alert("Failed to load questions.");
             });
     }
-     function showUnderConstruction() {
-            alert("THE SELECTED COURSE IS NOT ADDED IN DATABSE SORRY FOR TRUBEL TRY AFETR SOME TIME OR SEND MESSAGE On CONTACT US");
-        }
+
+    function showUnderConstruction() {
+        alert("THE SELECTED COURSE IS NOT ADDED IN DATABASE SORRY FOR TROUBLE TRY AFTER SOME TIME OR SEND MESSAGE On CONTACT US");
+    }
+
     function startTimer() {
         timerInterval = setInterval(() => {
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
             document.getElementById("timer").innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
             timeLeft--;
-    
+
             if (timeLeft < 0) {
                 clearInterval(timerInterval);
                 if (!examCompleted) {
@@ -146,97 +211,97 @@
             }
         }, 1000);
     }
-    
+
     function displayQuestion() {
-    if (currentQuestionIndex < 0) currentQuestionIndex = 0;
-    if (currentQuestionIndex >= questions.length) return;
+        if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+        if (currentQuestionIndex >= questions.length) return;
 
-    let q = questions[currentQuestionIndex];
-    document.getElementById("question").innerText = q.question;
+        let q = questions[currentQuestionIndex];
+        document.getElementById("question").innerText = q.question;
 
-    let options = document.querySelectorAll(".option");
-    let optionKeys = ["A", "B", "C", "D"];
+        let options = document.querySelectorAll(".option");
+        let optionKeys = ["A", "B", "C", "D"];
 
-    options.forEach((btn, index) => {
-        let optionText = q.options?.[optionKeys[index]]; // Safely get the option text
-        if (optionText) {
-            btn.innerText = optionText;
-            btn.style.display = "block"; // Show only available options
-        } else {
-            btn.style.display = "none"; // Hide missing options
+        options.forEach((btn, index) => {
+            let optionText = q.options?.[optionKeys[index]]; 
+            if (optionText) {
+                btn.innerText = optionText;
+                btn.style.display = "block"; 
+            } else {
+                btn.style.display = "none"; 
+            }
+            btn.classList.remove("selected");
+        });
+
+        if (selectedAnswers[currentQuestionIndex] !== undefined) {
+            let selectedIndex = selectedAnswers[currentQuestionIndex];
+            options[selectedIndex].classList.add("selected");
         }
-        btn.classList.remove("selected");
-    });
 
-    if (selectedAnswers[currentQuestionIndex] !== undefined) {
-        let selectedIndex = selectedAnswers[currentQuestionIndex];
-        options[selectedIndex].classList.add("selected");
+        updateStats();
     }
 
-    updateStats();
-}
-
-    
     function selectAnswer(selectedIndex) {
         selectedAnswers[currentQuestionIndex] = selectedIndex;
         attemptedQuestions.add(currentQuestionIndex);
-    
+
         document.querySelectorAll(".option").forEach((btn, index) => {
             btn.classList.remove("selected");
             if (index === selectedIndex) btn.classList.add("selected");
         });
-    
+
         updateStats();
+        changeNumberColor(currentQuestionIndex);
     }
-    
+
     function updateStats() {
         let attempted = attemptedQuestions.size;
         let total = questions.length;
         document.getElementById("attempted-questions").innerText = attempted;
         document.getElementById("unattempted-questions").innerText = total - attempted;
     }
-    
+
     function prevQuestion() { 
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--; 
             displayQuestion(); 
         }
     }
-    
+
     function nextQuestion() { 
         if (currentQuestionIndex < questions.length - 1) {
-            currentQuestionIndex++; 
-            displayQuestion(); 
+            currentQuestionIndex++;
+            displayQuestion();
         }
     }
+
     function submitQuiz() {
-    let totalQuestions = questions.length;
-    let attempted = attemptedQuestions.size;
+        let totalQuestions = questions.length;
+        let attempted = attemptedQuestions.size;
 
-    if (attempted < totalQuestions) {
-        alert("⚠ All questions are compulsory! Please attempt all questions before submitting.");
-        return;
+        if (attempted < totalQuestions) {
+            alert("⚠ All questions are compulsory! Please attempt all questions before submitting.");
+            return;
+        }
+
+        clearInterval(timerInterval);
+        examCompleted = true;
+
+        let correct = 0;
+        questions.forEach((q, index) => {
+            if (selectedAnswers[index] !== undefined) {
+                let selectedOption = selectedAnswers[index];
+                let correctOption = ["A", "B", "C", "D"].indexOf(q.correct_option?.trim().toUpperCase());
+                if (selectedOption === correctOption) {
+                    correct++;
+                }
+            }
+        });
+
+        correctAnswers = correct;
+        showResults();
     }
 
-    clearInterval(timerInterval);
-    examCompleted = true;
-
-    let correct = 0;
-    questions.forEach((q, index) => {
-        if (selectedAnswers[index] !== undefined) {
-            let selectedOption = selectedAnswers[index];
-            let correctOption = ["A", "B", "C", "D"].indexOf(q.correct_option?.trim().toUpperCase());
-            if (selectedOption === correctOption) {
-                correct++;
-            }
-        }
-    });
-
-    correctAnswers = correct;
-    showResults();
-}
-
-    
     function showResults() {
         document.body.innerHTML = `
             <div class="quiz-container">
@@ -251,7 +316,7 @@
                 <button onclick="location.reload()">Back to Home</button>
             </div>
         `;
-    
+
         let finalMessage = document.getElementById("final-message");
         let percentage = (correctAnswers / questions.length) * 100;
         if (percentage >= 50) {
@@ -262,8 +327,35 @@
             finalMessage.style.color = "red";
         }
     }
+
+    function generateNumberPanel() {
+        let panel = document.getElementById('number-panel');
+        panel.innerHTML = '';  // Clear previous panel content
+
+        for (let i = 1; i <= questions.length; i++) {
+            let button = document.createElement('button');
+            button.innerText = i;
+            button.classList.add('btn');
+            button.classList.add('question-number');
+            button.onclick = function() {
+                currentQuestionIndex = i - 1;
+                displayQuestion();
+            };
+
+            // Highlight attempted question numbers
+            if (attemptedQuestions.has(i - 1)) {
+                button.classList.add('attempted');
+            }
+
+            panel.appendChild(button);
+        }
+    }
+
+    function changeNumberColor(index) {
+        const numberButtons = document.querySelectorAll('.number-panel button');
+        numberButtons[index].style.backgroundColor = 'orange';  // Change color when attempted
+    }
 </script>
-        
-    
+
 </body>
 </html>
