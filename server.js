@@ -24,7 +24,7 @@ app.get("/Homepage", (req, res) => {
 });
 
 // ✅ Index Routes
-["index", "index2", "index3","index4","index5","index6","index7"].forEach((route) => {
+["index", "index2", "index3","index4","index5","index6","index7","index8"].forEach((route) => {
     app.get(`/${route}`, (req, res) => {
         console.log(`✅ ${route} page Loaded`);
         res.render(`${route}.ejs`);
@@ -32,7 +32,7 @@ app.get("/Homepage", (req, res) => {
 });
 
 // ✅ Fetch Questions (with IDs) for Each Index
-["questions", "questions2", "questions3","questions4","MangmentUnit3","MangmentUnit4","MangmentUnit5"].forEach((fileName) => {
+["questions", "questions2", "questions3","questions4","MangmentUnit3","MangmentUnit4","MangmentUnit5","MangmentAllQuestions"].forEach((fileName) => {
     app.get(`/${fileName}`, (req, res) => {
         const filePath = path.join(__dirname, `data/${fileName}.json`);
 
@@ -112,10 +112,11 @@ app.get("/fetch-questions", (req, res) => {
         "Management": "questions.json",
         "Emerging Trends in Computer & IT": "questions2.json",
         "Environmental Studies": "questions3.json",
-        "ETI Uity 2 Special":"questions4.json",
-        "Mangement Unit 3":"MangmentUnit3.json",
-        "Mangement Unit 4":"MangmentUnit4.json",
-        "Mangement Unit 5":"MangmentUnit5.json"
+        "ETI Uity 2 Special": "questions4.json",
+        "Mangment Unit 3": "MangmentUnit3.json",
+        "Mangment Unit 4": "MangmentUnit4.json",
+        "Mangment Unit 5":"MangmentUnit5.json",
+        "Mangment IMP":"MangmentAllQuestions.json"
     };
 
     const fileName = fileMap[quizName];
@@ -144,8 +145,6 @@ app.get("*", (req, res) => {
     console.log("✅ Homepage Loaded");
     res.redirect("/");
 });
-
-
 
 // ✅ Start the Server
 app.listen(8080, () => {
